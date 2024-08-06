@@ -24,5 +24,8 @@ export default defineConfig({
       '@types': fileURLToPath(new URL('./src/types', import.meta.url)),
       '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
     },
-  }
+  },
+  optimizeDeps: {
+    noDiscovery: true
+  },
 })
