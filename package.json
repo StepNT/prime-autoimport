@@ -13,7 +13,8 @@
     "primeicons": "^7.0.0",
     "primevue": "^4.0.4",
     "vue": "^3.4.35",
-    "vue-router": "^4.4.2"
+    "vue-router": "^4.4.2",
+    "chart.js": "3.3.2"
   },
   "devDependencies": {
     "@primevue/auto-import-resolver": "^4.0.4",

@@ -1,7 +1,7 @@
 <script setup>
 import { CustomerService } from '@/service/CustomerService';
 import { ProductService } from '@/service/ProductService';
-import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
+// import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
 import { onBeforeMount, reactive, ref } from 'vue';
 
 const customers1 = ref(null);
@@ -90,20 +90,20 @@ onBeforeMount(() => {
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
     CustomerService.getCustomersMedium().then((data) => (customers3.value = data));
 
-    initFilters1();
+    // initFilters1();
 });
 
 function initFilters1() {
     filters1.value = {
-        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        representative: { value: null, matchMode: FilterMatchMode.IN },
-        date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-        balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        activity: { value: [0, 100], matchMode: FilterMatchMode.BETWEEN },
-        verified: { value: null, matchMode: FilterMatchMode.EQUALS }
+        // global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        // name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        // 'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        // representative: { value: null, matchMode: FilterMatchMode.IN },
+        // date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
+        // balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+        // status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+        // activity: { value: [0, 100], matchMode: FilterMatchMode.BETWEEN },
+        // verified: { value: null, matchMode: FilterMatchMode.EQUALS }
     };
 }
 
@@ -150,10 +150,8 @@ function calculateCustomerTotal(name) {
             :rows="10"
             dataKey="id"
             :rowHover="true"
-            v-model:filters="filters1"
             filterDisplay="menu"
             :loading="loading1"
-            :filters="filters1"
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']"
             showGridlines
         >
@@ -164,7 +162,6 @@ function calculateCustomerTotal(name) {
                         <InputIcon>
                             <i class="pi pi-search" />
                         </InputIcon>
-                        <InputText v-model="filters1['global'].value" placeholder="Keyword Search" />
                     </IconField>
                 </div>
             </template>

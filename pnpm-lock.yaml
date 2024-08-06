@@ -11,6 +11,9 @@ importers:
       '@primevue/themes':
         specifier: ^4.0.4
         version: 4.0.4
+      chart.js:
+        specifier: 3.3.2
+        version: 3.3.2
       primeicons:
         specifier: ^7.0.0
         version: 7.0.0
@@ -510,6 +513,9 @@ packages:
 
   caniuse-lite@1.0.30001649:
     resolution: {integrity: sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==}
+
+  chart.js@3.3.2:
+    resolution: {integrity: sha512-H0hSO7xqTIrwxoACqnSoNromEMfXvfuVnrbuSt2TuXfBDDofbnto4zuZlRtRvC73/b37q3wGAWZyUU41QPvNbA==}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -1414,6 +1420,8 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   caniuse-lite@1.0.30001649: {}
+
+  chart.js@3.3.2: {}
 
   chokidar@3.6.0:
     dependencies:
