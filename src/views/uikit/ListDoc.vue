@@ -161,7 +161,7 @@ function getSeverity(product) {
                     <div class="mb-4 text-xl font-semibold">
                         OrderList
                     </div>
-                    <OrderList v-model="orderlistProducts" breakpoint="1400px" data-key="id" pt:pcList:root="w-full">
+                    <OrderList v-model="orderlistProducts" breakpoint="1400px" data-key="id">
                         <template #option="{ option }">
                             {{ option.name }}
                         </template>

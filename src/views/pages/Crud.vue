@@ -3,10 +3,6 @@ import { useToast } from 'primevue/usetoast'
 import { onMounted, ref } from 'vue'
 import { ProductService } from '@/service/ProductService'
 
-onMounted(() => {
-    ProductService.getProducts().then(data => (products.value = data))
-})
-
 const toast = useToast()
 const dt = ref()
 const products = ref()
@@ -26,6 +22,10 @@ const statuses = ref([
     { label: 'LOWSTOCK', value: 'lowstock' },
     { label: 'OUTOFSTOCK', value: 'outofstock' },
 ])
+
+onMounted(() => {
+    ProductService.getProducts().then(data => (products.value = data))
+})
 
 function formatCurrency(value) {
     if (value)

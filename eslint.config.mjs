@@ -21,6 +21,7 @@ export default antfu(
             }],
             'vue/prop-name-casing': ['off'],
             'ts/no-unsafe-function-type': ['off'],
+            'vue/no-template-shadow': ['off'],
         },
         jsonc: false,
         yaml: false,

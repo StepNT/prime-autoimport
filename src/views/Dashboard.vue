@@ -201,7 +201,7 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
                         Best Selling Products
                     </div>
                     <div>
-                        <Button icon="pi pi-ellipsis-v" class="p-button-text p-button-plain p-button-rounded" @click="$refs.menu2.toggle($event)" />
+                        <Button icon="pi pi-ellipsis-v" class="p-button-text p-button-rounded p-button-plain" @click="$refs.menu2.toggle($event)" />
                         <Menu ref="menu2" :popup="true" :model="items" class="!min-w-40" />
                     </div>
                 </div>

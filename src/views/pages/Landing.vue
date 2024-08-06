@@ -8,7 +8,7 @@ function smoothScroll(id) {
 </script>
 
 <template>
-    <div class="bg-surface-0 dark:bg-surface-900">
+    <div class="dark:bg-surface-900 bg-surface-0">
         <div id="home" class="landing-wrapper overflow-hidden">
             <div class="relative mx-0 flex items-center justify-between px-6 py-6 lg:static lg:mx-20 md:mx-12 lg:px-20">
                 <a class="flex items-center" href="#">
