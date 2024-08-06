@@ -8,7 +8,10 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()
 <template>
     <div class="layout-topbar">
         <div class="layout-topbar-logo-container">
-            <Button icon="pi pi-bars" text severity="secondary" rounded @click="onMenuToggle" />
+            <Button
+                class="layout-menu-button layout-topbar-action"
+                icon="pi pi-bars" text severity="secondary" rounded @click="onMenuToggle"
+            />
 
             <router-link to="/" class="layout-topbar-logo">
                 <svg viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
