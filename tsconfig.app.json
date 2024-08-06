@@ -25,34 +25,34 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     /* Custom */
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "paths": {
       "@app": [
-        "src/App.vue"
+        "./src/App.vue"
       ],
       "@/*": [
-        "src/*",
+        "./src/*",
       ],
       "@assets/*": [
-        "src/assets/*"
+        "./src/assets/*"
       ],
       "@images/*": [
-        "src/assets/images/*"
+        "./src/assets/images/*"
       ],
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@types/*": [
-        "src/types/*"
+        "./src/types/*"
       ],
       "@core/*": [
-        "src/@core/*"
+        "./src/@core/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "./src/utils/*"
       ],
       "@stores/*": [
-        "src/stores/*"
+        "./src/stores/*"
       ]
     },
   },
