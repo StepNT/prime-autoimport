@@ -1,12 +1,12 @@
-import { computed, reactive, readonly } from 'vue';
+import { computed, reactive, readonly } from 'vue'
 
 const layoutConfig = reactive({
     preset: 'Aura',
     primary: 'emerald',
     surface: null,
     darkTheme: false,
-    menuMode: 'static'
-});
+    menuMode: 'static',
+})
 
 const layoutState = reactive({
     staticMenuDesktopInactive: false,
@@ -15,70 +15,71 @@ const layoutState = reactive({
     configSidebarVisible: false,
     staticMenuMobileActive: false,
     menuHoverActive: false,
-    activeMenuItem: null
-});
+    activeMenuItem: null,
+})
 
 export function useLayout() {
-    const setPrimary = (value) => {
-        layoutConfig.primary = value;
-    };
+    const setPrimary = (value: any) => {
+        layoutConfig.primary = value
+    }
 
-    const setSurface = (value) => {
-        layoutConfig.surface = value;
-    };
+    const setSurface = (value: any) => {
+        layoutConfig.surface = value
+    }
 
-    const setPreset = (value) => {
-        layoutConfig.preset = value;
-    };
+    const setPreset = (value: any) => {
+        layoutConfig.preset = value
+    }
 
-    const setActiveMenuItem = (item) => {
-        layoutState.activeMenuItem = item.value || item;
-    };
+    const setActiveMenuItem = (item: any) => {
+        layoutState.activeMenuItem = item.value || item
+    }
 
-    const setMenuMode = (mode) => {
-        layoutConfig.menuMode = mode;
-    };
+    const setMenuMode = (mode: any) => {
+        layoutConfig.menuMode = mode
+    }
+
+    const executeDarkModeToggle = () => {
+        layoutConfig.darkTheme = !layoutConfig.darkTheme
+        document.documentElement.classList.toggle('app-dark')
+    }
 
     const toggleDarkMode = () => {
         if (!(document as any).startViewTransition) {
-            executeDarkModeToggle();
+            executeDarkModeToggle()
 
-            return;
+            return
         }
 
-        (document as any).startViewTransition(() => executeDarkModeToggle());
-    };
-
-    const executeDarkModeToggle = () => {
-        layoutConfig.darkTheme = !layoutConfig.darkTheme;
-        document.documentElement.classList.toggle('app-dark');
-    };
+        (document as any).startViewTransition(() => executeDarkModeToggle())
+    }
 
     const onMenuToggle = () => {
         if (layoutConfig.menuMode === 'overlay') {
-            layoutState.overlayMenuActive = !layoutState.overlayMenuActive;
+            layoutState.overlayMenuActive = !layoutState.overlayMenuActive
         }
 
         if (window.innerWidth > 991) {
-            layoutState.staticMenuDesktopInactive = !layoutState.staticMenuDesktopInactive;
-        } else {
-            layoutState.staticMenuMobileActive = !layoutState.staticMenuMobileActive;
+            layoutState.staticMenuDesktopInactive = !layoutState.staticMenuDesktopInactive
         }
-    };
+        else {
+            layoutState.staticMenuMobileActive = !layoutState.staticMenuMobileActive
+        }
+    }
 
     const resetMenu = () => {
-        layoutState.overlayMenuActive = false;
-        layoutState.staticMenuMobileActive = false;
-        layoutState.menuHoverActive = false;
-    };
+        layoutState.overlayMenuActive = false
+        layoutState.staticMenuMobileActive = false
+        layoutState.menuHoverActive = false
+    }
 
-    const isSidebarActive = computed(() => layoutState.overlayMenuActive || layoutState.staticMenuMobileActive);
+    const isSidebarActive = computed(() => layoutState.overlayMenuActive || layoutState.staticMenuMobileActive)
 
-    const isDarkTheme = computed(() => layoutConfig.darkTheme);
+    const isDarkTheme = computed(() => layoutConfig.darkTheme)
 
-    const getPrimary = computed(() => layoutConfig.primary);
+    const getPrimary = computed(() => layoutConfig.primary)
 
-    const getSurface = computed(() => layoutConfig.surface);
+    const getSurface = computed(() => layoutConfig.surface)
 
-    return { layoutConfig: readonly(layoutConfig), layoutState: readonly(layoutState), onMenuToggle, isSidebarActive, isDarkTheme, getPrimary, getSurface, setActiveMenuItem, toggleDarkMode, setPrimary, setSurface, setPreset, resetMenu, setMenuMode };
+    return { layoutConfig: readonly(layoutConfig), layoutState: readonly(layoutState), onMenuToggle, isSidebarActive, isDarkTheme, getPrimary, getSurface, setActiveMenuItem, toggleDarkMode, setPrimary, setSurface, setPreset, resetMenu, setMenuMode }
 }
