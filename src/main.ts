@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 
 import Aura from '@primevue/themes/aura'
+import type { PrimeVueConfiguration } from 'primevue/config'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
@@ -22,7 +23,8 @@ app.use(PrimeVue, {
             cssLayer: false,
         },
     },
-})
+
+} as PrimeVueConfiguration)
 app.use(ToastService)
 app.use(ConfirmationService)
 
