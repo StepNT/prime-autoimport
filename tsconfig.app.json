@@ -27,9 +27,6 @@
     /* Custom */
     // "baseUrl": ".",
     "paths": {
-      "@app": [
-        "./src/App.vue"
-      ],
       "@/*": [
         "./src/*",
       ],
