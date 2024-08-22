@@ -21,16 +21,16 @@
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.26.0",
+    "@antfu/eslint-config": "^2.27.0",
     "@primevue/auto-import-resolver": "^4.0.4",
     "@types/lodash": "^4.17.7",
-    "@types/node": "^22.4.0",
+    "@types/node": "^22.5.0",
     "@unocss/eslint-config": "^0.61.9",
     "@vitejs/plugin-vue": "^5.1.2",
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
     "unplugin-vue-components": "^0.27.4",
-    "vite": "^5.4.1",
+    "vite": "^5.4.2",
     "vue-tsc": "^2.0.29"
   }
 }
