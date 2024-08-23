@@ -39,23 +39,6 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()
         <div class="layout-topbar-actions">
             <div class="layout-config-menu">
                 <Button type="button" :icon="isDarkTheme ? 'pi pi-moon' : 'pi pi-sun'" rounded @click="toggleDarkMode" />
-
-                <div class="relative">
-                    <Button
-                        v-styleclass="{
-                            selector: '@next',
-                            enterFromClass: 'hidden',
-                            enterActiveClass: 'animate-fadeout',
-                            leaveToClass: 'hidden',
-                            leaveActiveClass: 'animate-fadeout',
-                            hideOnOutsideClick: true,
-                        }"
-                        icon="pi pi-palette"
-                        type="button"
-                        rounded
-                    />
-                    <AppConfigurator />
-                </div>
             </div>
         </div>
     </div>
