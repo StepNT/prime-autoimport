@@ -1,9 +1,9 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
-// import AppFooter from './AppFooter.vue'
-import AppSidebar from '@core/layouts/components/AppSidebar.vue'
-import AppTopbar from '@core/layouts/components/AppTopbar.vue'
 import { useLayout } from '@core/layouts/components/composables/layout'
+import AppFooter from '@/@core/layouts/components/Footer.vue'
+import AppSidebar from '@/@core/layouts/components/Sidebar.vue'
+import AppTopbar from '@/@core/layouts/components/Topbar.vue'
 
 const { layoutConfig, layoutState, isSidebarActive, resetMenu } = useLayout()
 
@@ -62,7 +62,7 @@ function isOutsideClicked(event) {
             <div class="layout-main">
                 <router-view />
             </div>
-            <!-- <AppFooter /> -->
+            <AppFooter />
         </div>
         <div class="layout-mask animate-fadein" />
     </div>

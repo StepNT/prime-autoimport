@@ -5,7 +5,7 @@ import type { PrimeVueConfiguration } from 'primevue/config'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
-import router from '@core/router'
+import routerConfig from '@core/router'
 import App from './App.vue'
 
 import '@/assets/styles.scss'
@@ -13,7 +13,7 @@ import 'virtual:uno.css'
 
 const app = createApp(App)
 
-app.use(router)
+app.use(routerConfig)
 app.use(PrimeVue, {
     theme: {
         preset: Aura,

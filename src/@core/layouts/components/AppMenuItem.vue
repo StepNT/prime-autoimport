@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onBeforeMount, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 import { useLayout } from './composables/layout'
 
 const props = defineProps({
@@ -32,7 +30,7 @@ const itemKey = ref<any>(null)
 onBeforeMount(() => {
     itemKey.value = props.parentItemKey ? `${props.parentItemKey}-${props.index}` : String(props.index)
 
-    const activeItem = layoutState.activeMenuItem
+    const activeItem = layoutState.activeMenuItem ?? ''
 
     isActiveMenu.value = activeItem === itemKey.value || activeItem ? activeItem.startsWith(`${itemKey.value}-`) : false
 })
@@ -44,7 +42,7 @@ watch(
     },
 )
 
-function itemClick(event: any, item: any) {
+function itemClick(event: any, item: any, _index: number) {
     if (item.disabled) {
         event.preventDefault()
         return
@@ -73,7 +71,14 @@ function checkActiveRoute(item: any) {
         <div v-if="root && item.visible !== false" class="layout-menuitem-root-text">
             {{ item.label }}
         </div>
-        <a v-if="(!item.to || item.items) && item.visible !== false" :href="item.url" :class="item.class" :target="item.target" tabindex="0" @click="itemClick($event, item, index)">
+        <a
+            v-if="(!item.to || item.items) && item.visible !== false"
+            tabindex="0"
+            :href="item.url"
+            :class="item.class"
+            :target="item.target"
+            @click="itemClick($event, item, index)"
+        >
             <i :class="item.icon" class="layout-menuitem-icon" />
             <span class="layout-menuitem-text">{{ item.label }}</span>
             <i v-if="item.items" class="layout-submenu-toggler pi pi-fw pi-angle-down" />
