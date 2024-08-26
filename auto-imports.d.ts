@@ -56,7 +56,7 @@ declare global {
   const toRefs: typeof import('vue')['toRefs']
   const typescriptConfig: typeof import('./src/constants/vite-config')['typescriptConfig']
   const useDisplay: typeof import('vuetify')['useDisplay']
-  const useLayout: typeof import('./src/layout/composables/layout')['useLayout']
+  const useLayout: typeof import('./src/@core/layouts/components/composables/layout')['useLayout']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useTheme: typeof import('vuetify')['useTheme']
