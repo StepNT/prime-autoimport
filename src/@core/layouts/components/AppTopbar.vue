@@ -1,5 +1,4 @@
-<script setup>
-// import AppConfigurator from './AppConfigurator.vue'
+<script setup lang="ts">
 import { useLayout } from '@core/layouts/components/composables/layout'
 
 const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()

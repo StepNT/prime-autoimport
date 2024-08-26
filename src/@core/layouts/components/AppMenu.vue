@@ -1,7 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import AppMenuItem from '@core/layouts/components/AppMenuItem.vue'
 import { ref } from 'vue'
-
-import AppMenuItem from './AppMenuItem.vue'
 
 const model = ref([
     {

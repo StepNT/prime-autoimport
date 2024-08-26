@@ -1,7 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { onBeforeMount, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-// import { useLayout } from '@/layout/composables/layout'
 import { useLayout } from './composables/layout'
 
 const props = defineProps({
@@ -28,7 +27,7 @@ const route = useRoute()
 const { layoutState, setActiveMenuItem, onMenuToggle } = useLayout()
 
 const isActiveMenu = ref(false)
-const itemKey = ref(null)
+const itemKey = ref<any>(null)
 
 onBeforeMount(() => {
     itemKey.value = props.parentItemKey ? `${props.parentItemKey}-${props.index}` : String(props.index)
@@ -40,12 +39,12 @@ onBeforeMount(() => {
 
 watch(
     () => layoutState.activeMenuItem,
-    (newVal) => {
+    (newVal: any) => {
         isActiveMenu.value = newVal === itemKey.value || newVal.startsWith(`${itemKey.value}-`)
     },
 )
 
-function itemClick(event, item) {
+function itemClick(event: any, item: any) {
     if (item.disabled) {
         event.preventDefault()
         return
@@ -64,7 +63,7 @@ function itemClick(event, item) {
     setActiveMenuItem(foundItemKey)
 }
 
-function checkActiveRoute(item) {
+function checkActiveRoute(item: any) {
     return route.path === item.to
 }
 </script>
