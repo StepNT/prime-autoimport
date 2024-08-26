@@ -5,14 +5,72 @@ import Components from 'unplugin-vue-components/vite'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 import UnoCSS from 'unocss/vite'
 import ViteFonts from 'unplugin-fonts/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
     plugins: [
-        vue(),
-        UnoCSS(),
+        AutoImport({
+            imports: [
+                // VueRouterAutoImports,
+                {
+                    typescript: [
+                        'readonly',
+                        'Record',
+                        'Partial',
+                        'Pick',
+                        'Omit',
+                        'Exclude',
+                        'Extract',
+                        'NonNullable',
+                        'ReturnType',
+                        'InstanceType',
+                        'Required',
+                        'ThisType',
+                        'PromiseLike',
+                        'ReadonlyArray',
+                        'TemplateStringsArray',
+                        'Uppercase',
+                        'Lowercase',
+                        'Capitalize',
+                        'Uncapitalize',
+                        'Parameters',
+                        'ConstructorParameters',
+                        'Tuple',
+                        'Awaited',
+                        'never',
+                    ],
+                    vue: [
+                        'ref',
+                        'reactive',
+                        'watchEffect',
+                        'computed',
+                        'watch',
+                        'defineProps',
+                        'defineEmits',
+                        'defineExpose',
+                        'withDefaults',
+                        'toRefs',
+                        'toRef',
+                        'onMounted',
+                        'onUnmounted',
+                        'shallowRef',
+                    ],
+                    pinia: ['defineStore', 'acceptHMRUpdate', 'storeToRefs'],
+                    // zod: ['z'],
+                },
+            ],
+            dirs: ['./src/**'],
+            dts: true,
+        }),
         Components({
+            dirs: ['src/components'],
+            directoryAsNamespace: true,
+            include: [/\.vue$/, /\.vue\?vue/],
+            exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
             resolvers: [PrimeVueResolver()],
         }),
+        vue(),
+        UnoCSS(),
         ViteFonts({
             google: {
                 families: [
