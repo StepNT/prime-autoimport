@@ -48,6 +48,7 @@ declare global {
   const ref: typeof import('vue')['ref']
   const router: typeof import('./@core/router')['default']
   const shallowRef: typeof import('vue')['shallowRef']
+  const shimsD: typeof import('./shims.d')['default']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
   const useLayout: typeof import('./@core/layouts/components/composables/layout')['useLayout']
