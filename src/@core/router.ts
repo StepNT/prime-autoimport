@@ -8,7 +8,7 @@ const router = createRouter({
     scrollBehavior() { return { top: 0 } },
 })
 /// Use AAA login ///
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (_to, _from, next) => {
     // const { user, isAccess } = useAuthStore()
 
     // if (!user && to.name === '/signin-oidc') {
