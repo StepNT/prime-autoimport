@@ -6,12 +6,15 @@ import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 import UnoCSS from 'unocss/vite'
 import ViteFonts from 'unplugin-fonts/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import Layouts from 'vite-plugin-vue-layouts'
+import VueRouter from 'unplugin-vue-router/vite'
 
 export default defineConfig({
     plugins: [
         AutoImport({
             imports: [
-                // VueRouterAutoImports,
+                VueRouterAutoImports,
                 {
                     typescript: [
                         'readonly',
@@ -68,6 +71,14 @@ export default defineConfig({
             include: [/\.vue$/, /\.vue\?vue/],
             exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
             resolvers: [PrimeVueResolver()],
+        }),
+        Layouts({
+            layoutsDirs: 'src/@core/layouts',
+            defaultLayout: 'default',
+        }),
+        VueRouter({
+            routesFolder: 'src/pages',
+            dts: true,
         }),
         vue(),
         UnoCSS(),

@@ -5,7 +5,7 @@ import type { PrimeVueConfiguration } from 'primevue/config'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
-import router from './router'
+import router from '@core/router'
 import App from './App.vue'
 
 import '@/assets/styles.scss'

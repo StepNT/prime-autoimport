@@ -11,12 +11,12 @@
     ],
     "files.exclude": {
         "**/.git": true,
-        ".gitignore": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
+        ".gitignore": true,
         "**/node_modules": true
     },
     "editor.fontLigatures": true,

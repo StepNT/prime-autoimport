@@ -26,6 +26,11 @@
     "noFallthroughCasesInSwitch": true,
     /* Custom */
     // "baseUrl": ".",
+    "types": [
+      "vite/client",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-router/client"
+    ],
     "paths": {
       "@/*": [
         "./src/*",
@@ -56,7 +61,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "typed-router.d.ts",
   ],
   "exclude": [
     "node_modules",
