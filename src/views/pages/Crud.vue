@@ -1,7 +1,7 @@
 <script setup>
+import { ProductService } from '@/service/ProductService'
 import { useToast } from 'primevue/usetoast'
 import { onMounted, ref } from 'vue'
-import { ProductService } from '@/service/ProductService'
 
 const toast = useToast()
 const dt = ref()

@@ -1,7 +1,7 @@
 <script setup>
-import { onBeforeMount, reactive, ref } from 'vue'
 import { CustomerService } from '@/service/CustomerService'
 import { ProductService } from '@/service/ProductService'
+import { onBeforeMount, reactive, ref } from 'vue'
 // import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
 
 const customers1 = ref(null)
@@ -296,7 +296,7 @@ function calculateCustomerTotal(name) {
         <div class="mb-4 text-xl font-semibold">
             Row Expansion
         </div>
-        <DataTable v-model:expandedRows="expandedRows" :value="products" data-key="id" table-style="min-width: 60rem">
+        <DataTable v-model:expanded-rows="expandedRows" :value="products" data-key="id" table-style="min-width: 60rem">
             <template #header>
                 <div class="flex flex-wrap justify-end gap-2">
                     <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />

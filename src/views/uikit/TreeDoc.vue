@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import { NodeService } from '@/service/NodeService'
+import { onMounted, ref } from 'vue'
 
 const treeValue = ref(null)
 const selectedTreeValue = ref(null)
@@ -18,14 +18,14 @@ onMounted(() => {
         <div class="text-xl font-semibold">
             Tree
         </div>
-        <Tree v-model:selectionKeys="selectedTreeValue" :value="treeValue" selection-mode="checkbox" />
+        <Tree v-model:selection-keys="selectedTreeValue" :value="treeValue" selection-mode="checkbox" />
     </div>
 
     <div class="card">
         <div class="mb-4 text-xl font-semibold">
             TreeTable
         </div>
-        <TreeTable v-model:selectionKeys="selectedTreeTableValue" :value="treeTableValue" selection-mode="checkbox">
+        <TreeTable v-model:selection-keys="selectedTreeTableValue" :value="treeTableValue" selection-mode="checkbox">
             <Column field="name" header="Name" :expander="true" />
             <Column field="size" header="Size" />
             <Column field="type" header="Type" />

@@ -24,7 +24,7 @@ import FloatingConfigurator from '@/components/FloatingConfigurator.vue'
                 </g>
             </svg>
             <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, color-mix(in srgb, var(--primary-color), transparent 60%) 10%, var(--surface-ground) 30%)">
-                <div class="dark:bg-surface-900 bg-surface-0 w-full flex flex-col items-center px-8 py-20 sm:px-20" style="border-radius: 53px">
+                <div class="bg-surface-0 dark:bg-surface-900 w-full flex flex-col items-center px-8 py-20 sm:px-20" style="border-radius: 53px">
                     <span class="text-primary text-3xl font-bold">404</span>
                     <h1 class="text-surface-900 dark:text-surface-0 mb-2 text-3xl font-bold lg:text-5xl">
                         Not Found

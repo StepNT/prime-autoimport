@@ -311,7 +311,7 @@ function smoothScroll(id) {
 
                 <div class="grid grid-cols-12 mt-20 justify-between gap-4 md:mt-0">
                     <div class="col-span-12 p-0 lg:col-span-4 md:p-4">
-                        <div class="pricing-card border-surface-200 hover:border-primary dark:border-surface-600 flex flex-col cursor-pointer border-2 p-4 transition-all duration-300" style="border-radius: 10px">
+                        <div class="border-surface-200 pricing-card hover:border-primary dark:border-surface-600 flex flex-col cursor-pointer border-2 p-4 transition-all duration-300" style="border-radius: 10px">
                             <div class="text-surface-900 dark:text-surface-0 my-8 text-center text-3xl">
                                 Free
                             </div>

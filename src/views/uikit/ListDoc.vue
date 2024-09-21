@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import { ProductService } from '@/service/ProductService'
+import { onMounted, ref } from 'vue'
 
 const products = ref(null)
 const picklistProducts = ref(null)
@@ -97,7 +97,7 @@ function getSeverity(product) {
                 <template #grid="slotProps">
                     <div class="grid grid-cols-12 gap-4">
                         <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 p-2 lg:col-span-4 sm:col-span-6">
-                            <div class="border-surface-200 bg-surface-0 dark:bg-surface-900 dark:border-surface-700 flex flex-col border rounded p-6">
+                            <div class="bg-surface-0 dark:bg-surface-900 border-surface-200 dark:border-surface-700 flex flex-col border rounded p-6">
                                 <div class="bg-surface-50 flex justify-center rounded p-4">
                                     <div class="relative mx-auto">
                                         <img class="w-full rounded" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" style="max-width: 300px">

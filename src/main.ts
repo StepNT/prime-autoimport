@@ -1,11 +1,11 @@
-import { createApp } from 'vue'
-
-import Aura from '@primevue/themes/aura'
 import type { PrimeVueConfiguration } from 'primevue/config'
+
+import routerConfig from '@core/router'
+import Aura from '@primevue/themes/aura'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
-import routerConfig from '@core/router'
+import { createApp } from 'vue'
 import App from './App.vue'
 
 import '@/assets/styles.scss'
