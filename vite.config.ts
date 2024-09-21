@@ -1,14 +1,14 @@
 import { fileURLToPath } from 'node:url'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
+import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
-import ViteFonts from 'unplugin-fonts/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import ViteFonts from 'unplugin-fonts/vite'
+import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-import Layouts from 'vite-plugin-vue-layouts'
 import VueRouter from 'unplugin-vue-router/vite'
+import { defineConfig } from 'vite'
+import Layouts from 'vite-plugin-vue-layouts'
 
 export default defineConfig({
     plugins: [
@@ -64,11 +64,11 @@ export default defineConfig({
                 },
             ],
             dirs: ['./src/**'],
-            dts: './src/auto-imports.d.ts',
+            dts: 'auto-imports.d.ts',
         }),
         Components({
             dirs: ['src/components'],
-            dts: 'src/components.d.ts',
+            dts: 'components.d.ts',
             directoryAsNamespace: true,
             include: [/\.vue$/, /\.vue\?vue/],
             exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
