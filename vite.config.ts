@@ -64,11 +64,11 @@ export default defineConfig({
                 },
             ],
             dirs: ['./src/**'],
-            dts: 'auto-imports.d.ts',
+            dts: './src/auto-imports.d.ts',
         }),
         Components({
             dirs: ['src/components'],
-            dts: 'components.d.ts',
+            dts: './src/components.d.ts',
             directoryAsNamespace: true,
             include: [/\.vue$/, /\.vue\?vue/],
             exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
