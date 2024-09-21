@@ -17,7 +17,6 @@ export default defineConfig({
                 VueRouterAutoImports,
                 {
                     typescript: [
-                        'readonly',
                         'Record',
                         'Partial',
                         'Pick',
@@ -80,7 +79,7 @@ export default defineConfig({
         }),
         VueRouter({
             routesFolder: 'src/pages',
-            dts: true,
+            dts: 'src/typed-router.d.ts',
         }),
         vue(),
         UnoCSS(),

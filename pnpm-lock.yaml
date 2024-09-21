@@ -54,9 +54,6 @@ importers:
       sass:
         specifier: ^1.79.3
         version: 1.79.3
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
       unplugin-auto-import:
         specifier: ^0.18.3
         version: 0.18.3(rollup@4.21.2)(webpack-sources@3.2.3)
