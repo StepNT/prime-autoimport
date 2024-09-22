@@ -18,7 +18,7 @@
     "primevue": "^4.0.7",
     "unocss": "^0.62.4",
     "unplugin-fonts": "^1.1.1",
-    "vue": "^3.5.7",
+    "vue": "^3.5.8",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
