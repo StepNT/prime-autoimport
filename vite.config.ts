@@ -14,9 +14,8 @@ export default defineConfig({
     plugins: [
         AutoImport({
             imports: [
-                VueRouterAutoImports,
                 {
-                    typescript: [
+                    'typescript': [
                         'Record',
                         'Partial',
                         'Pick',
@@ -41,7 +40,7 @@ export default defineConfig({
                         'Awaited',
                         'never',
                     ],
-                    vue: [
+                    'vue': [
                         'ref',
                         'reactive',
                         'watchEffect',
@@ -58,6 +57,7 @@ export default defineConfig({
                         'shallowRef',
                         'onBeforeMount',
                     ],
+                    'vue-router': ['useRouter'],
                     // pinia: ['defineStore', 'acceptHMRUpdate', 'storeToRefs'],
                     // zod: ['z'],
                 },

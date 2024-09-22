@@ -2,13 +2,13 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { routes } from 'vue-router/auto-routes'
 
-const routerConfig = createRouter({
+const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: setupLayouts(routes),
     scrollBehavior() { return { top: 0 } },
 })
 /// Use AAA login ///
-routerConfig.beforeEach(async (_to, _from, next) => {
+router.beforeEach(async (_to, _from, next) => {
     // const { user, isAccess } = useAuthStore()
 
     // if (!user && to.name === '/signin-oidc') {
@@ -33,4 +33,4 @@ routerConfig.beforeEach(async (_to, _from, next) => {
 //     appStore.isProgressLoading = false
 // })
 
-export default routerConfig
+export default router

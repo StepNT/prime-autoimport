@@ -1,6 +1,5 @@
 import type { PrimeVueConfiguration } from 'primevue/config'
 
-import routerConfig from '@core/router'
 import Aura from '@primevue/themes/aura'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
