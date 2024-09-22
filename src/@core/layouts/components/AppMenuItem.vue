@@ -62,7 +62,7 @@ function itemClick(event: any, item: any, _index: number) {
 }
 
 function checkActiveRoute(item: any) {
-    return route.path === item.to
+    return route.currentRoute.value.path === item.to
 }
 </script>
 
