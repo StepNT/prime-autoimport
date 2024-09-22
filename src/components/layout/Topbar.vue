@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLayout } from '@core/layouts/components/composables/layout'
+import { useLayout } from '@/stores/layout'
 
 const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()
 </script>

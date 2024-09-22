@@ -48,7 +48,7 @@ declare global {
   const shallowRef: typeof import('vue')['shallowRef']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
-  const useLayout: typeof import('./@core/layouts/components/composables/layout')['useLayout']
+  const useLayout: typeof import('./stores/layout')['useLayout']
   const useRouter: typeof import('vue-router')['useRouter']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']

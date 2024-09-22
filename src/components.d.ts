@@ -9,6 +9,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
     FloatingConfigurator: typeof import('./components/FloatingConfigurator.vue')['default']
+    LayoutFooter: typeof import('./components/layout/Footer.vue')['default']
+    LayoutMenu: typeof import('./components/layout/Menu.vue')['default']
+    LayoutMenuItem: typeof import('./components/layout/MenuItem.vue')['default']
+    LayoutSidebar: typeof import('./components/layout/Sidebar.vue')['default']
+    LayoutTopbar: typeof import('./components/layout/Topbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Toast: typeof import('primevue/toast')['default']

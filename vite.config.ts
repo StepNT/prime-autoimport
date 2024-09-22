@@ -74,7 +74,7 @@ export default defineConfig({
             resolvers: [PrimeVueResolver()],
         }),
         Layouts({
-            layoutsDirs: 'src/@core/layouts',
+            layoutsDirs: 'src/layouts',
             defaultLayout: 'default',
         }),
         VueRouter({

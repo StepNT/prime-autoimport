@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useLayout } from './composables/layout'
+import MenuItem2 from '@components/layout/MenuItem.vue'
+import { useLayout } from '@stores/layout'
 
 const props = defineProps({
     item: {
@@ -90,7 +91,12 @@ function checkActiveRoute(item: any) {
         </router-link>
         <Transition v-if="item.items && item.visible !== false" name="layout-submenu">
             <ul v-show="root ? true : isActiveMenu" class="layout-submenu">
-                <app-menu-item v-for="(child, i) in item.items" :key="child" :index="i" :item="child" :parent-item-key="itemKey" :root="false" />
+                <MenuItem2
+                    v-for="(child, i) in item.items" :key="child" :index="i"
+                    :item="child"
+                    :parent-item-key="itemKey"
+                    :root="false"
+                />
             </ul>
         </Transition>
     </li>
