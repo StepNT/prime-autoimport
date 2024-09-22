@@ -20,7 +20,7 @@ const props = defineProps({
     },
 })
 
-const route = useRoute()
+const route = useRouter()
 
 const { layoutState, setActiveMenuItem, onMenuToggle } = useLayout()
 
