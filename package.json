@@ -12,23 +12,22 @@
     "x": "rm -f auto-imports.d.ts && rm -f components.d.ts && rm -f ./src/typed-router.d.ts && vite"
   },
   "dependencies": {
-    "@primevue/themes": "^4.0.7",
+    "@primevue/themes": "^4.1.0",
     "chart.js": "3.3.2",
     "primeicons": "^7.0.0",
-    "primevue": "^4.0.7",
+    "primevue": "^4.1.0",
     "unocss": "^0.62.4",
     "unplugin-fonts": "^1.1.1",
-    "vue": "^3.5.10",
+    "vue": "^3.5.11",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
-    "@primevue/auto-import-resolver": "^4.0.7",
-    "@types/lodash": "^4.17.9",
+    "@primevue/auto-import-resolver": "^4.1.0",
     "@types/node": "^22.7.4",
     "@unocss/eslint-config": "^0.62.4",
     "@vitejs/plugin-vue": "^5.1.4",
-    "sass": "^1.79.3",
+    "sass": "^1.79.4",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
     "unplugin-vue-router": "^0.10.8",
