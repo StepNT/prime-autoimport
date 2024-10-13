@@ -5,7 +5,6 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteFonts from 'unplugin-fonts/vite'
 import Components from 'unplugin-vue-components/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -34,13 +33,13 @@ export default defineConfig({
                         'onBeforeMount',
                         'useTemplateRef',
                     ],
-                    'vue-router': ['useRouter'],
+                    'vue-router': ['useRouter', 'useRoute'],
                     'pinia': ['defineStore', 'acceptHMRUpdate'],
                     'zod': ['z'],
                     '@vueuse/core': ['watchDebounced'],
                 },
             ],
-            dirs: ['./src/**'],
+            dirs: ['./src/**', '!./src/utils/config/**'],
             dts: './src/auto-imports.d.ts',
         }),
         Components({

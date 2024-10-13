@@ -7,6 +7,7 @@ import ToastService from 'primevue/toastservice'
 import { createApp } from 'vue'
 import App from './App.vue'
 
+import { routerConfig } from './utils/config/router'
 import '@/assets/styles.scss'
 import 'virtual:uno.css'
 
