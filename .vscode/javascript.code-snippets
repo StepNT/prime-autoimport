@@ -60,7 +60,7 @@
 		"prefix": "v-import",
 		"description": "Import a module",
 		"body": [
-			"import $2 from '$1';"
+			"import $1 from '$2';"
 		],
 	},
 	"const-useXXX": {
