@@ -8,12 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
-    FloatingConfigurator: typeof import('./components/FloatingConfigurator.vue')['default']
-    LayoutFooter: typeof import('./components/layout/Footer.vue')['default']
-    LayoutMenu: typeof import('./components/layout/Menu.vue')['default']
-    LayoutMenuItem: typeof import('./components/layout/MenuItem.vue')['default']
-    LayoutSidebar: typeof import('./components/layout/Sidebar.vue')['default']
-    LayoutTopbar: typeof import('./components/layout/Topbar.vue')['default']
+    LayoutComponentsFooter: typeof import('./components/layout/components/footer.vue')['default']
+    LayoutComponentsMenu: typeof import('./components/layout/components/menu.vue')['default']
+    LayoutComponentsMenuItem: typeof import('./components/layout/components/menuItem.vue')['default']
+    LayoutComponentsSidebar: typeof import('./components/layout/components/sidebar.vue')['default']
+    LayoutComponentsTopbar: typeof import('./components/layout/components/topbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Toast: typeof import('primevue/toast')['default']

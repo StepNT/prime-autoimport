@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import MenuComponent from '@components/layout/components/menu.vue'
 </script>
 
 <template>
     <div class="layout-sidebar">
-        <LayoutMenu />
+        <MenuComponent />
     </div>
 </template>
 

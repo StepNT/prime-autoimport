@@ -43,7 +43,7 @@ export default defineConfig({
             dts: './src/auto-imports.d.ts',
         }),
         Components({
-            dirs: ['src/components', '!./src/components/@layouts/**'],
+            dirs: ['src/components', '!./src/components/layout/**'],
             dts: './src/components.d.ts',
             directoryAsNamespace: true,
             include: [/\.vue$/, /\.vue\?vue/],
@@ -51,7 +51,7 @@ export default defineConfig({
             resolvers: [PrimeVueResolver()],
         }),
         Layouts({
-            layoutsDirs: 'src/layouts',
+            layoutsDirs: 'src/components/layout',
             defaultLayout: 'default',
         }),
         VueRouter({

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MenuItem2 from '@components/layout/MenuItem.vue'
+import MenuItemComponent from '@components/layout/components/menuItem.vue'
 import { useLayout } from '@stores/layout'
 
 const props = defineProps({
@@ -91,7 +91,7 @@ function checkActiveRoute(item: any) {
         </router-link>
         <Transition v-if="item.items && item.visible !== false" name="layout-submenu">
             <ul v-show="root ? true : isActiveMenu" class="layout-submenu">
-                <MenuItem2
+                <MenuItemComponent
                     v-for="(child, i) in item.items" :key="child" :index="i"
                     :item="child"
                     :parent-item-key="itemKey"
