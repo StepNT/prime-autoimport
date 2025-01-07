@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteFonts from 'unplugin-fonts/vite'
@@ -39,12 +39,11 @@ export default defineConfig({
                     '@vueuse/core': ['watchDebounced'],
                 },
             ],
-            // dirs: ['./src/**', '!./src/utils/config/**'],
             dirs: ['./src/utils/**', './src/stores', '!./src/utils/config/**'],
             dts: './src/auto-imports.d.ts',
         }),
         Components({
-            dirs: ['src/components'],
+            dirs: ['src/components', '!./src/components/@layouts/**'],
             dts: './src/components.d.ts',
             directoryAsNamespace: true,
             include: [/\.vue$/, /\.vue\?vue/],
@@ -59,7 +58,7 @@ export default defineConfig({
             routesFolder: 'src/pages',
             dts: 'src/typed-router.d.ts',
         }),
-        vue(),
+        Vue(),
         UnoCSS(),
         ViteFonts({
             google: {
@@ -75,7 +74,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                api: 'modern-compiler',
+                api: 'modern',
             },
         },
     },
