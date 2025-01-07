@@ -3,15 +3,11 @@ import axios from 'axios'
 
 import { buildWebStorage, setupCache } from 'axios-cache-interceptor'
 
-const { token } = useAuthStore()
-
 function dateTransformer(data: any): any {
     if (data instanceof Date) {
-        // const res = data.toLocaleString()
         const dateObj = new Date(data)
         dateObj.setHours(dateObj.getHours() + 7)
-        const res = dateObj.toISOString()
-        return res
+        return dateObj.toISOString()
     }
 
     if (Array.isArray(data)) {
@@ -30,7 +26,6 @@ const axiosInstance = axios.create({
     headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
     },
     transformRequest: [dateTransformer, ...(axios.defaults.transformRequest as AxiosRequestTransformer[])],
 })
@@ -69,6 +64,19 @@ function generateCacheKey(config: any) {
     return key
 }
 
+const httpMessage: { [key: number]: string } = {
+    401: 'ไม่มีสิทธิ์ในการเข้าถึง (401)',
+    403: 'การเข้าถึงถูกปฏิเสธ (403)',
+    404: 'ไม่พบบริการ (404)',
+    408: 'คำขอหมดเวลา (408)',
+    500: 'ข้อผิดพลาดของเซิร์ฟเวอร์ (500)',
+    501: 'ไม่ได้ใช้บริการ (501)',
+    502: 'ข้อผิดพลาดของเครือข่าย (502)',
+    503: 'ไม่สามารถให้บริการได้ (503)',
+    504: 'เครือข่ายหมดเวลา (504)',
+    505: 'ไม่รองรับเวอร์ชัน HTTP (505)',
+} as const
+
 function handleError(err: any) {
     const { resetLoading } = useAppStore()
 
@@ -85,7 +93,6 @@ function handleError(err: any) {
         message = httpMessage[code] || 'เกิดข้อผิดพลาด'
     }
 
-    // vNotify.error(`status code:${statusCode} | ${message}`)
     _alert.Err(`status code: ${code}`, message)
 
     resetLoading()
@@ -108,6 +115,9 @@ function handleError(err: any) {
 }
 
 axiosInstance.interceptors.request.use((config: any) => {
+    const { token } = useAuthStore()
+    config.headers.Authorization = `Bearer ${token}`
+
     config.isLoading = config?.isLoading ?? true
     if (config?.isLoading) {
         const { setLoading } = useAppStore()

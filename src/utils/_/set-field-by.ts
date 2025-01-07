@@ -3,10 +3,9 @@ type Primitive = string | number | boolean | null | undefined
 
 type Paths<T> = T extends Primitive
     ? never
-    : {
-            [K in keyof T & string]: T[K] extends object
-                ? `${K}` | `${K}.${Paths<T[K]>}`
-                : `${K}`;
+    : { [K in keyof T & string]: T[K] extends object
+            ? `${K}` | `${K}.${Paths<T[K]>}`
+            : `${K}`;
         }[keyof T & string]
 
 export function _setFieldBy<T extends object, P extends Paths<T>>(

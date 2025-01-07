@@ -1,4 +1,3 @@
-// cspell:disable
 export function _sortBy<T>(arr: T[], key: keyof T, order: 'asc' | 'desc' = 'asc'): T[] {
     return [...arr].sort((a, b) => {
         if (a[key] < b[key])
