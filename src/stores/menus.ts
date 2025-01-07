@@ -2,8 +2,8 @@ const menus = reactive([
     {
         label: 'Home',
         items: [
-            { label: 'Home', icon: 'pi pi-fw pi-home', to: '/' },
-            { label: 'Product', icon: 'pi pi-fw pi-pencil', to: '/product' },
+            { label: 'Home', icon: 'i-carbon:home', to: '/' },
+            { label: 'Product', icon: 'i-carbon:product', to: '/product' },
         ],
     },
 ])

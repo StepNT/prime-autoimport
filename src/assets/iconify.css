@@ -1,0 +1,5 @@
+/* set iconify icon size */
+[class^="i-"] {
+    width: 1.50rem !important;
+    height: 1.50rem !important;
+}

@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <div>
-        <h1>CRUD</h1>
+    <div className="card">
+        <h1>Product</h1>
+
+        <div class="i-carbon:home" />
     </div>
 </template>

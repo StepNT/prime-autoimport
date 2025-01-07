@@ -59,7 +59,13 @@ export default defineConfig({
             dts: 'src/typed-router.d.ts',
         }),
         Vue(),
-        UnoCSS(),
+        UnoCSS({
+            content: {
+                pipeline: {
+                    include: ['**/*.vue', '**/*.ts'],
+                },
+            },
+        }),
         ViteFonts({
             google: {
                 families: [
