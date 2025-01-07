@@ -30,9 +30,10 @@
             width: 3rem;
         }
 
-        &:focus-visible {
-            @include focused();
-        }
+        //todo
+        // &:focus-visible {
+        //     @include focused();
+        // }
     }
 
     .layout-topbar-action {

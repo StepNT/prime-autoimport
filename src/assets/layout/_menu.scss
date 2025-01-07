@@ -89,9 +89,10 @@
                 background-color: var(--surface-hover);
             }
 
-            &:focus {
-                @include focused-inset();
-            }
+            //todo
+            // &:focus {
+            //     @include focused-inset();
+            // }
         }
 
         ul {
