@@ -60,12 +60,3 @@ declare global {
   const withDefaults: typeof import('vue')['withDefaults']
   const z: typeof import('zod')['z']
 }
-// for type re-export
-declare global {
-  // @ts-ignore
-  export type { GlobalComponents } from './components.d'
-  import('./components.d')
-  // @ts-ignore
-  export type { RouteNamedMap } from './typed-router.d'
-  import('./typed-router.d')
-}

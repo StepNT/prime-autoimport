@@ -39,7 +39,8 @@ export default defineConfig({
                     '@vueuse/core': ['watchDebounced'],
                 },
             ],
-            dirs: ['./src/**', '!./src/utils/config/**'],
+            // dirs: ['./src/**', '!./src/utils/config/**'],
+            dirs: ['./src/utils/**', './src/stores', '!./src/utils/config/**'],
             dts: './src/auto-imports.d.ts',
         }),
         Components({

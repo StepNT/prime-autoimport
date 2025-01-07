@@ -7,7 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Button: typeof import('primevue/button')['default']
     FloatingConfigurator: typeof import('./components/FloatingConfigurator.vue')['default']
     LayoutFooter: typeof import('./components/layout/Footer.vue')['default']
     LayoutMenu: typeof import('./components/layout/Menu.vue')['default']
@@ -16,6 +15,5 @@ declare module 'vue' {
     LayoutTopbar: typeof import('./components/layout/Topbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Toast: typeof import('primevue/toast')['default']
   }
 }
