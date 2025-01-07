@@ -1,3 +1,17 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "antfu.file-nesting",
+    "antfu.goto-alias",
+    "chrisbibby.hide-node-modules",
+    "idered.npm",
+    "yoavbls.pretty-ts-errors",
+    "travis.simple-dark",
+    "antfu.unocss",
+    "vue.volar",
+    "vscode-icons-team.vscode-icons",
+    "antfu.iconify"
+  ]
 }
