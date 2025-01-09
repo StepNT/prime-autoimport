@@ -8,8 +8,25 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Calendar: typeof import('primevue/calendar')['default']
+    Card: typeof import('primevue/card')['default']
+    CustomerFilterForm: typeof import('./components/customer/filter-form.vue')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
+    Fluid: typeof import('primevue/fluid')['default']
+    InputGroup: typeof import('primevue/inputgroup')['default']
+    InputNumber: typeof import('primevue/inputnumber')['default']
+    InputText: typeof import('primevue/inputtext')['default']
+    MultiSelect: typeof import('primevue/multiselect')['default']
+    Panel: typeof import('primevue/panel')['default']
+    ProductFilterForm: typeof import('./components/product/filter-form.vue')['default']
+    ProductFilterFormHorizontal: typeof import('./components/product/filter-form-horizontal.vue')['default']
+    RadioButton: typeof import('primevue/radiobutton')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Select: typeof import('primevue/select')['default']
+    SplitButton: typeof import('primevue/splitbutton')['default']
+    Textarea: typeof import('primevue/textarea')['default']
     Toast: typeof import('primevue/toast')['default']
+    Toolbar: typeof import('primevue/toolbar')['default']
   }
 }
