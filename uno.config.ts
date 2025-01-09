@@ -8,7 +8,7 @@ export default defineConfig({
         // 'row': 'flex flex-wrap',
         // 'row': 'flex flex-wrap',
         //
-        'input-group': 'grid-cols-12 grid gap-2 items-baseline [&_label]:md:text-right',
+        'input-group': 'grid-cols-12 grid gap-2 items-baseline [&_label]:md:text-right [&_div]:sm:col-span-12',
         // t
     },
     rules: [
