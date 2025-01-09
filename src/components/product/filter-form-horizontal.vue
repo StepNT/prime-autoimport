@@ -15,19 +15,19 @@
                 <div class="input-group">
                     <label class="col-span-12 md:col-span-3">Brand</label>
                     <div class="col-span-12 md:col-span-9">
-                        <InputText type="text" w-full />
+                        <InputText type="text" />
                     </div>
                 </div>
                 <div class="input-group">
                     <label class="col-span-12 md:col-span-3">Brand</label>
                     <div class="col-span-12 md:col-span-9">
-                        <InputText type="text" w-full />
+                        <InputText type="text" />
                     </div>
                 </div>
                 <div class="input-group">
                     <label class="col-span-12 md:col-span-3">Brand</label>
                     <div class="col-span-12 md:col-span-9">
-                        <InputText type="text" w-full />
+                        <InputText type="text" />
                     </div>
                 </div>
             </div>
