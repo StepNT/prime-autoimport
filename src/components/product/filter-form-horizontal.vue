@@ -16,8 +16,8 @@ const state = reactive({
 <template>
     <Card>
         <template #title>
-            <div class="m-2 text-xl font-semibold">
-                Horizontal
+            <div class="text-xl font-semibold">
+                <Button icon="i-carbon:search" severity="info" variant="text" rounded label="Filter" />
             </div>
         </template>
 
