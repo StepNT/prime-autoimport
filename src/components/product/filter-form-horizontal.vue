@@ -36,11 +36,10 @@ const state = reactive({
                     <Select
                         v-model="state.search.status"
                         :options="state.master.status"
+                        option-value="id"
                         option-label="text"
                         placeholder="Select a Status"
                         :show-clear="true"
-                        :filter="true"
-                        :auto-filter-focus="true"
                         col-9
                     />
                 </div>
