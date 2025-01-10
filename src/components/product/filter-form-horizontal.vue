@@ -22,7 +22,7 @@ const state = reactive({
         </template>
 
         <template #content>
-            <div row-grid-3>
+            <div row-3>
                 <div input-group>
                     <label col-3>Brand</label>
                     <InputText v-model="state.search.brand" col-9 type="text" />
