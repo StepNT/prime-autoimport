@@ -40,7 +40,7 @@ const state = reactive({
                         option-label="text"
                         placeholder="Select a Status"
                         :show-clear="true"
-                        col-9
+                        filter col-9
                     />
                 </div>
             </div>
