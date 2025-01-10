@@ -22,32 +22,27 @@ const state = reactive({
         </template>
 
         <template #content>
-            <div row-3>
+            <div row-grid-3>
                 <div input-group>
-                    <label input-group-col-3>Brand</label>
-                    <div input-group-col-9>
-                        <InputText v-model="state.search.brand" type="text" />
-                    </div>
+                    <label col-3>Brand</label>
+                    <InputText v-model="state.search.brand" col-9 type="text" />
                 </div>
                 <div input-group>
-                    <label input-group-col-3>Title</label>
-                    <div input-group-col-9>
-                        <InputText v-model="state.search.title" type="text" />
-                    </div>
+                    <label col-3>Title</label>
+                    <InputText v-model="state.search.title" col-9 type="text" />
                 </div>
                 <div class="input-group">
-                    <label input-group-col-3>Status</label>
-                    <div input-group-col-9>
-                        <Select
-                            v-model="state.search.status"
-                            :options="state.master.status"
-                            option-label="text"
-                            placeholder="Select a Status"
-                            :show-clear="true"
-                            :filter="true"
-                            :auto-filter-focus="true"
-                        />
-                    </div>
+                    <label col-3>Status</label>
+                    <Select
+                        v-model="state.search.status"
+                        :options="state.master.status"
+                        option-label="text"
+                        placeholder="Select a Status"
+                        :show-clear="true"
+                        :filter="true"
+                        :auto-filter-focus="true"
+                        col-9
+                    />
                 </div>
             </div>
         </template>

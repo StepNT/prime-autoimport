@@ -3,10 +3,14 @@ import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
 export default defineConfig({
     shortcuts: [
         {
-            'input-group': 'grid-cols-12 grid gap-2 items-baseline m-2 [&_label]:md:text-right [&_input]:w-full [&_.p-select]:w-full [&_textarea]:w-full',
+            'input': 'w-full',
+            'p-select': 'w-full',
+            'textarea': 'w-full',
+
+            'input-group': 'grid-cols-12 grid gap-2 items-baseline m-2 [&_label]:md:text-right',
         },
-        [/^row-(.*)$/, ([, c]) => `grid flex-row md:grid-cols-${c}`],
-        [/^input-group-col-(.*)$/, ([, c]) => `col-span-12 md:col-span-${c}`],
+        [/^row-grid-(\d+)$/, ([, c]) => `grid flex-row md:grid-cols-${c}`],
+        [/^col-(\d+)$/, ([, c]) => `col-span-12 md:col-span-${c}`],
     ],
     rules: [],
     presets: [
