@@ -11,6 +11,7 @@ declare module 'vue' {
     Calendar: typeof import('primevue/calendar')['default']
     Card: typeof import('primevue/card')['default']
     CustomerFilterForm: typeof import('./components/customer/filter-form.vue')['default']
+    DatePicker: typeof import('primevue/datepicker')['default']
     Dropdown: typeof import('primevue/dropdown')['default']
     Fluid: typeof import('primevue/fluid')['default']
     InputGroup: typeof import('primevue/inputgroup')['default']
