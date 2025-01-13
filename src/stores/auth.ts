@@ -1,5 +1,4 @@
 export const useAuthStore = defineStore('auth', () => {
-    debugger
     const token = ref<string | null>(null)
     const user = ref<UserLogin | null>(null)
 
