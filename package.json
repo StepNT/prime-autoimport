@@ -14,7 +14,7 @@
   "dependencies": {
     "@primevue/themes": "^4.2.5",
     "dayjs": "^1.11.13",
-    "eslint": "^9.17.0",
+    "eslint": "^9.18.0",
     "localstorage-slim": "^2.7.1",
     "pinia": "^2.3.0",
     "pinia-plugin-persistedstate": "^4.2.0",
@@ -25,7 +25,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.13.0",
+    "@antfu/eslint-config": "^3.14.0",
     "@iconify-json/carbon": "^1.2.5",
     "@primevue/auto-import-resolver": "^4.2.5",
     "@unocss/eslint-config": "^0.65.4",
