@@ -31,7 +31,7 @@ const state = reactive({
                     <label col-3>Title</label>
                     <InputText v-model="state.search.title" col-9 type="text" />
                 </div>
-                <div class="input-group">
+                <div input-group>
                     <label col-3>Status</label>
                     <Select
                         v-model="state.search.status"
@@ -40,7 +40,8 @@ const state = reactive({
                         option-label="text"
                         placeholder="Select a Status"
                         :show-clear="true"
-                        filter col-9
+                        filter
+                        col-9
                     />
                 </div>
             </div>
