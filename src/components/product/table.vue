@@ -31,11 +31,11 @@ const state = reactive({
 const tablex = reactive({
     headers: [
         { header: 'ID', field: 'id', key: 'id', sortable: true },
-        { header: 'Title', field: 'title', key: 'title' },
-        { header: 'PRICE', field: 'price', key: 'price' },
-        { header: 'RATING', key: 'rating', field: 'rating', sortable: true },
-        { header: 'STOCK', key: 'stock', field: 'stock' },
-        { header: 'BRAND', key: 'brand', field: 'brand' },
+        { header: 'Title', field: 'title' },
+        { header: 'PRICE', field: 'price' },
+        { header: 'RATING', field: 'rating', sortable: true },
+        { header: 'STOCK', field: 'stock' },
+        { header: 'BRAND', field: 'brand' },
     ],
     options: {
         page: 0,
@@ -94,7 +94,7 @@ defineExpose({
                 :value="tablex.result.items"
                 :total-records="tablex.result.itemsLength"
             >
-                <Column v-for="col of tablex.headers" :key="col.key" :field="col.key" :header="col.header" :sortable="col.sortable" />
+                <Column v-for="(col, index) of tablex.headers" :key="`${col.field}_${index}`" v-bind="col" />
 
                 <template #header>
                     <div class="flex justify-end">
