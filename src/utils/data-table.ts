@@ -1,85 +1,104 @@
-import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
+import type { ColumnProps, DataTablePageEvent, DataTableProps, DataTableSortEvent } from 'primevue'
 
-// interface DataTableOption {
-//     page: DataTablePageEvent
-//     itemsPerPage: number
-//     sortBy: DataTableSortEvent
-// }
-
-// interface DataTableSortBy {
-//     sortField: string
-//     sortOrder?: 'asc' | 'desc'
-// }
-
-interface DataTableHeader {
-    title: string
-    align?: 'start' | 'center' | 'end'
-    sortable?: false | true
-    key: string
+interface DataTableState extends DataTableProps {
+    page: number
+    pageCount: number
+    originalEvent: Event
+    first: number
+    rows: number
+    sortField: string | ((item: any) => string) | undefined
+    sortOrder: 1 | 0 | -1 | undefined
 }
 
-// interface DataTableResult<TData> {
-//     items: TData[]
-//     itemsLength: number
-// }
+interface DataTableType<TData> {
+    headers: readonly ColumnProps[]
+    props: DataTableState
+    result: DataTableResult<TData>
+}
 
-// interface DataTable<TData> {
-//     headers: readonly DataTableHeader[]
-//     options: DataTableOption
-//     result: DataTableResult<TData>
-// }
-// function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortBy[], onSubmit: Function) {
-function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortEvent, onSubmit: Function) {
-    const table = reactive({
+interface DataTableResult<TData> {
+    value: TData[]
+    totalRecords: number
+}
+
+export interface DataTableStatePage {
+    page: number
+    sort: string
+    order: 'asc' | 'desc'
+    itemPrePage: number
+}
+
+type DataTableSortBy = Pick<DataTableSortEvent, 'sortField' | 'sortOrder'>
+
+function useDataTable<TItems>(headers: ColumnProps[], sorting: DataTableSortBy, onSubmit: Function) {
+    const table = reactive<DataTableType<TItems>>({
         headers,
-        options: {
-            page: {} as DataTablePageEvent,
-            itemsPerPage: 20,
-            sortBy,
-        },
+        props: {
+            rowsPerPageOptions: [10, 20, 30, 40, 50],
+            pageLinkSize: 10,
+            paginator: true,
+            lazy: true,
+            // page //
+            page: 1,
+            // itemsPerPage //
+            rows: 10,
+            // sorting //
+            sortField: sorting.sortField,
+            sortOrder: sorting.sortOrder as number | undefined,
+            // result //
+            value: [] as TItems[],
+            totalRecords: 0,
+        } as DataTableState,
         result: {
-            items: [],
-            itemsLength: 0,
-        },
-    } as DataTable<TItems>)
+            value: [],
+            totalRecords: 0,
+        } as DataTableResult<TItems>,
+    })
+
+    function getStatePage() {
+        return {
+            page: table.props.page,
+            sort: table.props.sortField,
+            order: table.props.sortOrder === 1 ? 'asc' : 'desc',
+            itemPrePage: table.props.rows,
+        } as DataTableStatePage
+    }
 
     function onPageChange(item: DataTablePageEvent) {
-        // const page = item.page + 1
-        table.options.page = item
-        onSubmit()
+        table.props.page = item.page
+        table.props.pageCount = item.pageCount
+
+        onSubmit(getStatePage())
     }
 
-    function onSortChange(item: DataTableSortEvent) {
-        table.options.sortBy = item
-        onSubmit({ sortBy })
+    function onSortByChange(item: DataTableSortEvent) {
+        table.props.sortField = item.sortField
+        table.props.sortOrder = item?.sortOrder ?? -1
+
+        onSubmit(getStatePage())
     }
 
-    function onPageLengthChange(itemsPerPage: any) {
-        table.options.itemsPerPage = itemsPerPage
-        onSubmit()
+    function onPageLengthChange(item: any) {
+        debugger
+        console.log('onPageLengthChange', item)
+        table.props.rows = item.rows
+
+        onSubmit(getStatePage())
     }
 
     function functionOnSubmit() {
-        // table.options.page = { ...table.options.page, page: page ?? table.options.page.page }
-        onSubmit()
-    }
+        table.props.first = 0
+        table.props.page = 0
 
-    function Options() {
-        return {
-            rows: 10,
-            rowsPerPageOptions: [10, 20, 30, 40, 50],
-            pageLinkSize: 10,
-        }
+        onSubmit(getStatePage())
     }
 
     return {
         table,
         onSubmit: functionOnSubmit,
         onPageChange,
-        onSortChange,
+        onSortByChange,
         onPageLengthChange,
-        // option
-        Options,
     }
 }
 
