@@ -6,6 +6,7 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const _dateTime: typeof import('./utils/date-time')['_dateTime']
   const _debounce: typeof import('./utils/_/debounce')['_debounce']
   const _groupBy: typeof import('./utils/_/group-by')['_groupBy']
   const _isArray: typeof import('./utils/_/is-array')['_isArray']
@@ -42,6 +43,7 @@ declare global {
   const toRefs: typeof import('vue')['toRefs']
   const useAppStore: typeof import('./stores/app')['useAppStore']
   const useAuthStore: typeof import('./stores/auth')['useAuthStore']
+  const useDataTable: typeof import('./utils/data-table')['useDataTable']
   const useId: typeof import('vue')['useId']
   const useLayout: typeof import('./stores/layout')['useLayout']
   const useMenusStore: typeof import('./stores/menus')['useMenusStore']

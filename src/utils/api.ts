@@ -92,8 +92,9 @@ function handleError(err: any) {
         code = res?.status ?? 500
         message = httpMessage[code] || 'เกิดข้อผิดพลาด'
     }
-
-    _alert.Err(`status code: ${code}`, message)
+    console.log('err', err)
+    console.log('message', message)
+    // _alert.Err(`status code: ${code}`, message)
 
     resetLoading()
 

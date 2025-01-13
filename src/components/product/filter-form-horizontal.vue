@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const tableRef = useTemplateRef('tableEl')
+
 const state = reactive({
     master: {
         status: [
@@ -11,6 +13,15 @@ const state = reactive({
         // autoCompleteMultipleServer: ['0d464588-56a6-4831-b085-f26cb65ee7fd', 'd85f5eb3-4b9c-4483-9b77-29010b0a93a3', 'dc79347f-90b2-4ffb-9140-69e54648e180'],
     } as Product,
 })
+
+const func = {
+    onClear: async () => {
+        state.search = {} as Product
+    },
+    onSearch: async () => {
+        await tableRef.value!.onSearch(state.search)
+    },
+}
 </script>
 
 <template>
@@ -73,5 +84,14 @@ const state = reactive({
                 </div>
             </div>
         </template>
+
+        <template #footer>
+            <div class="mr-2 flex justify-end gap-2">
+                <Button type="button" icon="i-carbon:renew" severity="warn" label="Reset" @click="func.onClear()" />
+                <Button type="button" icon="i-carbon:search" severity="info" label="Search" @click="func.onSearch()" />
+            </div>
+        </template>
     </Card>
+
+    <ProductTable ref="tableEl" mt-4 />
 </template>
