@@ -1,13 +1,15 @@
+import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
+
 interface DataTableOption {
-    page: number
+    page: DataTablePageEvent
     itemsPerPage: number
-    sortBy: DataTableSortBy[]
+    sortBy: DataTableSortEvent
 }
 
-interface DataTableSortBy {
-    key: string
-    order?: boolean | 'asc' | 'desc'
-}
+// interface DataTableSortBy {
+//     sortField: string
+//     sortOrder?: 'asc' | 'desc'
+// }
 
 interface DataTableHeader {
     title: string
@@ -26,12 +28,12 @@ interface DataTable<TData> {
     options: DataTableOption
     result: DataTableResult<TData>
 }
-
-function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortBy[], onSubmit: Function) {
+// function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortBy[], onSubmit: Function) {
+function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortEvent, onSubmit: Function) {
     const table = reactive({
         headers,
         options: {
-            page: 1,
+            page: {} as DataTablePageEvent,
             itemsPerPage: 20,
             sortBy,
         },
@@ -41,24 +43,25 @@ function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortB
         },
     } as DataTable<TItems>)
 
-    function onPageChange(page: number) {
-        table.options.page = page
-        onSubmit({ page })
+    function onPageChange(item: DataTablePageEvent) {
+        // const page = item.page + 1
+        table.options.page = item
+        onSubmit()
     }
 
-    function onSortByChange(sortBy: any) {
-        table.options.sortBy = sortBy
+    function onSortChange(item: DataTableSortEvent) {
+        table.options.sortBy = item
         onSubmit({ sortBy })
     }
 
-    function onPageLengthChange(itemsPerPage: number) {
+    function onPageLengthChange(itemsPerPage: any) {
         table.options.itemsPerPage = itemsPerPage
-        onSubmit({ itemsPerPage })
+        onSubmit()
     }
 
-    function functionOnSubmit({ page } = { page: 1 }) {
-        table.options.page = page
-        onSubmit({ page })
+    function functionOnSubmit() {
+        // table.options.page = { ...table.options.page, page: page ?? table.options.page.page }
+        onSubmit()
     }
 
     function Options() {
@@ -73,7 +76,7 @@ function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortB
         table,
         onSubmit: functionOnSubmit,
         onPageChange,
-        onSortByChange,
+        onSortChange,
         onPageLengthChange,
         // option
         Options,

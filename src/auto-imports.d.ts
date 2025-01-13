@@ -39,6 +39,7 @@ declare global {
   const requiredNumber: typeof import('./utils/zod-validate')['requiredNumber']
   const requiredString: typeof import('./utils/zod-validate')['requiredString']
   const shallowRef: typeof import('vue')['shallowRef']
+  const tableSetting: typeof import('./utils/data-table')['tableSetting']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
   const useAppStore: typeof import('./stores/app')['useAppStore']

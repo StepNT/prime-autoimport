@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
+const appStore = useAppStore()
 
 const state = reactive({
     search: {} as Product,
@@ -8,34 +8,54 @@ const state = reactive({
     totalRecords: 0 as number,
 })
 
-const { table, onSubmit, Options } = useDataTable<Product>(
-    [
+// const { table, onSubmit, onPageChange, onSortChange, Options } = useDataTable<Product>(
+//     [
+//         { title: 'ID', key: 'id', sortable: true },
+//         { title: 'Title', key: 'title' },
+//         { title: 'PRICE', key: 'price' },
+//         { title: 'RATING', key: 'rating', sortable: true },
+//         { title: 'STOCK', key: 'stock' },
+//         { title: 'BRAND', key: 'brand' },
+//     ],
+//     [
+//         { sortField: 'rating', sortOrder: 'asc' },
+//     ],
+//     async () => {
+//         console.log(table.options.sortBy[0])
+//         const res = await api.Get<{ products: Product[], total: number }>(`https://dummyjson.com/products?limit=10&skip=${table.options.page}`)
+//         table.result.items = res.products
+//         table.result.itemsLength = res.total
+//     },
+// )
+
+const tablex = reactive({
+    headers: [
         { title: 'ID', key: 'id', sortable: true },
         { title: 'Title', key: 'title' },
         { title: 'PRICE', key: 'price' },
-        { title: 'RATING', key: 'rating' },
+        { title: 'RATING', key: 'rating', sortable: true },
         { title: 'STOCK', key: 'stock' },
         { title: 'BRAND', key: 'brand' },
     ],
-    [
-        { key: 'id', order: 'asc' },
-    ],
-    async () => {
-        const { products, total } = await api.Get<{ products: Product[], total: number }>(`https://dummyjson.com/products?limit=10&skip=${table.options.page}`)
-        table.result.items = products
-        table.result.itemsLength = total
+    options: {
+        page: 0,
+        // sortBy: [
+        //     { sortField: 'rating', sortOrder: 'asc' },
+        // ],
     },
-)
+    result: {
+        items: [] as Product[],
+        itemsLength: 0 as number,
+    },
+})
+
+async function onSubmit() {
+    const res = await api.Get<{ products: Product[], total: number }>(`https://dummyjson.com/products?limit=10&skip=${tablex.options.page}`)
+    tablex.result.items = res.products
+    tablex.result.itemsLength = res.total
+}
 
 const func = {
-    onPage: (event: DataTablePageEvent) => {
-        state.page = event.first ?? 0
-        onSubmit()
-    },
-    onSort: (event: DataTableSortEvent) => {
-        state.page = event.first ?? 0
-        onSubmit()
-    },
     onEdit: (_val: Product) => {
         // modalRef.value!.open(val)
     },
@@ -45,8 +65,8 @@ const func = {
     onDelete: (_event: Event, _product: Product) => {
     },
 }
-onMounted(() => {
-    onSubmit()
+onMounted(async () => {
+    await onSubmit()
 })
 
 defineExpose({
@@ -61,11 +81,15 @@ defineExpose({
     <Card>
         <template #content>
             <DataTable
+                sort-field="rating"
+                :sort-order="1"
+                :loading="appStore.isLoading"
                 lazy paginator
-                data-key="id"
-                v-bind="Options"
-                :value="table.result.items"
-                :total-records="table.result.itemsLength"
+                :rows="10"
+                :rows-per-page-options="[10, 20, 30, 40, 50]"
+                :page-link-size="10"
+                :value="tablex.result.items"
+                :total-records="tablex.result.itemsLength"
             >
                 <template #header>
                     <div class="flex justify-end">
@@ -83,7 +107,7 @@ defineExpose({
                 </template>
 
                 <Column
-                    v-for="col of table.headers"
+                    v-for="col of tablex.headers"
                     :key="col.key"
                     :field="col.key"
                     :header="col.title"
