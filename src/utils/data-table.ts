@@ -1,10 +1,10 @@
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
-interface DataTableOption {
-    page: DataTablePageEvent
-    itemsPerPage: number
-    sortBy: DataTableSortEvent
-}
+// interface DataTableOption {
+//     page: DataTablePageEvent
+//     itemsPerPage: number
+//     sortBy: DataTableSortEvent
+// }
 
 // interface DataTableSortBy {
 //     sortField: string
@@ -18,16 +18,16 @@ interface DataTableHeader {
     key: string
 }
 
-interface DataTableResult<TData> {
-    items: TData[]
-    itemsLength: number
-}
+// interface DataTableResult<TData> {
+//     items: TData[]
+//     itemsLength: number
+// }
 
-interface DataTable<TData> {
-    headers: readonly DataTableHeader[]
-    options: DataTableOption
-    result: DataTableResult<TData>
-}
+// interface DataTable<TData> {
+//     headers: readonly DataTableHeader[]
+//     options: DataTableOption
+//     result: DataTableResult<TData>
+// }
 // function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortBy[], onSubmit: Function) {
 function useDataTable<TItems>(headers: DataTableHeader[], sortBy: DataTableSortEvent, onSubmit: Function) {
     const table = reactive({

@@ -24,6 +24,7 @@ declare module 'vue' {
     ProductFilterForm: typeof import('./components/product/filter-form.vue')['default']
     ProductFilterFormHorizontal: typeof import('./components/product/filter-form-horizontal.vue')['default']
     ProductTable: typeof import('./components/product/table.vue')['default']
+    ProgressSpinner: typeof import('primevue/progressspinner')['default']
     RadioButton: typeof import('primevue/radiobutton')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

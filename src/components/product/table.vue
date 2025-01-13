@@ -30,12 +30,12 @@ const state = reactive({
 
 const tablex = reactive({
     headers: [
-        { title: 'ID', key: 'id', sortable: true },
-        { title: 'Title', key: 'title' },
-        { title: 'PRICE', key: 'price' },
-        { title: 'RATING', key: 'rating', sortable: true },
-        { title: 'STOCK', key: 'stock' },
-        { title: 'BRAND', key: 'brand' },
+        { header: 'ID', field: 'id', key: 'id', sortable: true },
+        { header: 'Title', field: 'title', key: 'title' },
+        { header: 'PRICE', field: 'price', key: 'price' },
+        { header: 'RATING', key: 'rating', field: 'rating', sortable: true },
+        { header: 'STOCK', key: 'stock', field: 'stock' },
+        { header: 'BRAND', key: 'brand', field: 'brand' },
     ],
     options: {
         page: 0,
@@ -56,15 +56,18 @@ async function onSubmit() {
 }
 
 const func = {
-    onEdit: (_val: Product) => {
+    onEdit: (val: Product) => {
         // modalRef.value!.open(val)
+        console.log(val)
     },
     onCreate: () => {
         // modalRef.value!.open({} as Product)
     },
-    onDelete: (_event: Event, _product: Product) => {
+    onDelete: (val: Product) => {
+        console.log(val)
     },
 }
+
 onMounted(async () => {
     await onSubmit()
 })
@@ -91,6 +94,8 @@ defineExpose({
                 :value="tablex.result.items"
                 :total-records="tablex.result.itemsLength"
             >
+                <Column v-for="col of tablex.headers" :key="col.key" :field="col.key" :header="col.header" :sortable="col.sortable" />
+
                 <template #header>
                     <div class="flex justify-end">
                         <Button
@@ -106,29 +111,27 @@ defineExpose({
                     Data Not Found
                 </template>
 
-                <Column
-                    v-for="col of tablex.headers"
-                    :key="col.key"
-                    :field="col.key"
-                    :header="col.title"
-                    :sortable="col.sortable"
-                />
+                <template #loading>
+                    Loading...
+                </template>
 
                 <!-- Edit, Delete -->
                 <Column id="action-col" header="Action" style="width: 100px" header-class="flex justify-center">
                     <template #body="slotProps">
                         <div class="align-items-center text-info flex gap-1">
                             <Button
-                                text rounded type="button"
+                                text rounded
+                                type="button"
                                 severity="danger"
-                                icon="pi pi-trash"
-                                @click="func.onDelete($event, slotProps.data as Product)"
+                                icon="i-carbon:trash-can"
+                                @click="func.onDelete(slotProps.data as Product)"
                             />
 
                             <Button
-                                text rounded type="button"
+                                text rounded
+                                type="button"
                                 severity="info"
-                                icon="pi pi-pencil"
+                                icon="i-carbon:edit"
                                 @click="func.onEdit(slotProps.data as Product)"
                             />
                         </div>
