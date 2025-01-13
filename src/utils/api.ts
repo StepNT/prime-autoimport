@@ -92,7 +92,9 @@ function handleError(err: any) {
         code = res?.status ?? 500
         message = httpMessage[code] || 'เกิดข้อผิดพลาด'
     }
+    // eslint-disable-next-line no-console
     console.log('err', err)
+    // eslint-disable-next-line no-console
     console.log('message', message)
     // _alert.Err(`status code: ${code}`, message)
 

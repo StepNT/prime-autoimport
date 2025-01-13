@@ -1,54 +1,24 @@
-import type { ColumnProps, DataTablePageEvent, DataTableProps, DataTableSortEvent } from 'primevue'
+import type { DataTableHeader, DataTableResult, DataTableSortBy, DataTableStatePage, DataTableType } from '@/types/common/data-table'
+import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
-interface DataTableState extends DataTableProps {
-    page: number
-    pageCount: number
-    originalEvent: Event
-    first: number
-    rows: number
-    sortField: string | ((item: any) => string) | undefined
-    sortOrder: 1 | 0 | -1 | undefined
-}
-
-interface DataTableType<TData> {
-    headers: readonly ColumnProps[]
-    props: DataTableState
-    result: DataTableResult<TData>
-}
-
-interface DataTableResult<TData> {
-    value: TData[]
-    totalRecords: number
-}
-
-export interface DataTableStatePage {
-    page: number
-    sort: string
-    order: 'asc' | 'desc'
-    itemPrePage: number
-}
-
-type DataTableSortBy = Pick<DataTableSortEvent, 'sortField' | 'sortOrder'>
-
-function useDataTable<TItems>(headers: ColumnProps[], sorting: DataTableSortBy, onSubmit: Function) {
+function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSortBy, onSubmit: Function) {
     const table = reactive<DataTableType<TItems>>({
         headers,
         props: {
             rowsPerPageOptions: [10, 20, 30, 40, 50],
-            pageLinkSize: 10,
             paginator: true,
             lazy: true,
             // page //
+            originalEvent: {} as Event,
+            first: 0,
             page: 1,
+            pageCount: 0,
             // itemsPerPage //
             rows: 10,
             // sorting //
             sortField: sorting.sortField,
-            sortOrder: sorting.sortOrder as number | undefined,
-            // result //
-            value: [] as TItems[],
-            totalRecords: 0,
-        } as DataTableState,
+            sortOrder: sorting.sortOrder,
+        },
         result: {
             value: [],
             totalRecords: 0,
@@ -72,15 +42,15 @@ function useDataTable<TItems>(headers: ColumnProps[], sorting: DataTableSortBy, 
     }
 
     function onSortByChange(item: DataTableSortEvent) {
-        table.props.sortField = item.sortField
+        table.props.sortField = item.sortField as string
         table.props.sortOrder = item?.sortOrder ?? -1
 
         onSubmit(getStatePage())
     }
 
     function onPageLengthChange(item: any) {
-        debugger
-        console.log('onPageLengthChange', item)
+        // debugger
+        // console.log('onPageLengthChange', item)
         table.props.rows = item.rows
 
         onSubmit(getStatePage())
