@@ -52,12 +52,24 @@ const state = reactive({
                     <InputNumber v-model="state.search.discountPercentage" col-9 />
                 </div>
                 <div input-group>
-                    <label col-3>Title</label>
-                    <DatePicker v-model="state.search.start" :select-other-months="true" :max-date="state.search.end" col-9 />
+                    <label col-3>Start Date</label>
+                    <DatePicker
+                        v-model="state.search.start"
+                        :select-other-months="true"
+                        show-icon icon-display="input"
+                        :max-date="state.search.end"
+                        col-9
+                    />
                 </div>
                 <div input-group>
-                    <label col-3>Title</label>
-                    <DatePicker v-model="state.search.end" :select-other-months="true" :min-date="state.search.start" col-9 />
+                    <label col-3>End Date</label>
+                    <DatePicker
+                        v-model="state.search.end"
+                        show-icon icon-display="input"
+                        :select-other-months="true"
+                        :min-date="state.search.start"
+                        col-9
+                    />
                 </div>
             </div>
         </template>
