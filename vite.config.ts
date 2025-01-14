@@ -37,6 +37,7 @@ export default defineConfig({
                     'pinia': ['defineStore', 'acceptHMRUpdate'],
                     'zod': ['z'],
                     '@vueuse/core': ['watchDebounced'],
+                    'primevue': ['useConfirm', 'useToast'],
                 },
             ],
             dirs: ['./src/utils/**', './src/stores', '!./src/utils/config/**'],
