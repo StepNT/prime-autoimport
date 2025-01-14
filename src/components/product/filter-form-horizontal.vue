@@ -28,7 +28,11 @@ const func = {
     <Card @keydown.enter="func.onSearch">
         <template #title>
             <div text-xl font-semibold>
-                <Button icon="i-carbon:search" severity="info" variant="text" rounded label="Filter" />
+                <Button severity="info" variant="text" rounded label="Filter">
+                    <template #icon>
+                        <div i-carbon:filter animate-bounce animate-duration-3s animate-count-infinite />
+                    </template>
+                </Button>
             </div>
         </template>
 
@@ -87,8 +91,16 @@ const func = {
 
         <template #footer>
             <div mr-2 flex justify-end gap-2>
-                <Button type="button" icon="i-carbon:renew" severity="warn" label="Reset" @click="func.onClear()" />
-                <Button type="button" icon="i-carbon:search" severity="info" label="Search" @click="func.onSearch()" />
+                <Button type="button" severity="warn" label="Reset" @click="func.onClear()">
+                    <template #icon>
+                        <div i-carbon:renew animate-spin animate-duration-3s animate-count-infinite />
+                    </template>
+                </Button>
+                <Button type="button" severity="info" label="Search" @click="func.onSearch()">
+                    <template #icon>
+                        <div i-carbon:search animate-tada animate-duration-3s animate-count-infinite />
+                    </template>
+                </Button>
             </div>
         </template>
     </Card>

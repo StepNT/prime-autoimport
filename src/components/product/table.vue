@@ -30,15 +30,13 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
     },
 )
 
-const func = {
-    onEdit(_val: Product) {
-        // modalRef.value!.open(val)
-    },
-    onCreate() {
-        // modalRef.value!.open({} as Product)
-    },
-    onDelete(_val: Product) {
-    },
+function onEdit(_val: Product) {
+    // modalRef.value!.open(val)
+}
+function onCreate() {
+    // modalRef.value!.open({} as Product)
+}
+function onDelete(_val: Product) {
 }
 
 onMounted(() => onSubmit())
@@ -71,7 +69,11 @@ defineExpose({
 
                 <template #header>
                     <div flex justify-end>
-                        <Button type="button" icon="i-carbon:add" severity="success" label="Create" @click="func.onCreate" />
+                        <Button type="button" severity="success" label="Create" @click="onCreate">
+                            <template #icon>
+                                <div i-carbon:add animate-tada animate-duration-2s animate-count-infinite />
+                            </template>
+                        </Button>
                     </div>
                 </template>
 
@@ -87,19 +89,21 @@ defineExpose({
                 <Column id="action-col" header="Action" w-full flex justify-center>
                     <template #body="item">
                         <Button
+                            hover="animate-tada animate-count-infinite"
                             text rounded
                             type="button"
                             severity="danger"
                             icon="i-carbon:trash-can"
-                            @click="func.onDelete(item.data as Product)"
+                            @click="onDelete(item.data as Product)"
                         />
 
                         <Button
+                            hover="animate-tada animate-count-infinite"
                             text rounded
+                            icon="i-carbon:edit"
                             type="button"
                             severity="info"
-                            icon="i-carbon:edit"
-                            @click="func.onEdit(item.data as Product)"
+                            @click="onEdit(item.data as Product)"
                         />
                     </template>
                 </Column>
