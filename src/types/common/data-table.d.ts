@@ -1,8 +1,8 @@
 
-interface DataTableState  {
-rowsPerPageOptions: number[]
-paginator: boolean
-lazy: boolean
+interface DataTableState  { 
+    rowsPerPageOptions: number[] 
+    paginator: boolean
+    lazy: boolean
     page: number
     pageCount: number
     originalEvent: Event
@@ -32,7 +32,7 @@ export interface DataTableStatePage {
 
 interface DataTableSortBy {
     sortField: string
-  sortOrder: -1|0|1
+    sortOrder: 'asc' | 'desc'//-1|0|1
 }
 
 interface DataTableHeader {

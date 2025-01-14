@@ -17,7 +17,7 @@ function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSort
             rows: 10,
             // sorting //
             sortField: sorting.sortField,
-            sortOrder: sorting.sortOrder,
+            sortOrder: sorting.sortOrder === 'asc' ? 1 : -1,
         },
         result: {
             value: [],

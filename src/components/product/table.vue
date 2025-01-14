@@ -20,8 +20,7 @@ const { table, onSubmit, onPageChange, onSortByChange } = useDataTable<Product>(
     ],
     {
         sortField: 'rating',
-        sortOrder: 1,
-
+        sortOrder: 'asc',
     },
     async ({ page, sort, order, itemPrePage }: DataTableStatePage) => {
         const { products, total } = await api.Get<{ products: Product[], total: number }>
