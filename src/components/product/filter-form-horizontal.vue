@@ -27,7 +27,7 @@ const func = {
 <template>
     <Card @keydown.enter="func.onSearch">
         <template #title>
-            <div class="text-xl font-semibold">
+            <div text-xl font-semibold>
                 <Button icon="i-carbon:search" severity="info" variant="text" rounded label="Filter" />
             </div>
         </template>
@@ -86,7 +86,7 @@ const func = {
         </template>
 
         <template #footer>
-            <div class="mr-2 flex justify-end gap-2">
+            <div mr-2 flex justify-end gap-2>
                 <Button type="button" icon="i-carbon:renew" severity="warn" label="Reset" @click="func.onClear()" />
                 <Button type="button" icon="i-carbon:search" severity="info" label="Search" @click="func.onSearch()" />
             </div>

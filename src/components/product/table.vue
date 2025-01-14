@@ -12,7 +12,7 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
     [
         { header: 'ID', field: 'id', sortable: true },
         { header: 'Title', field: 'title' },
-        { header: 'PRICE', field: 'price' },
+        { header: 'PRICE', field: 'price', sortable: true },
         { header: 'RATING', field: 'rating', sortable: true },
         { header: 'STOCK', field: 'stock' },
         { header: 'BRAND', field: 'brand' },
@@ -63,13 +63,8 @@ defineExpose({
                 <Column v-for="(col, index) of table.headers" :key="`${col.field}_${index}`" v-bind="col" />
 
                 <template #header>
-                    <div class="flex justify-end">
-                        <Button
-                            type="button" icon="i-carbon:add"
-                            severity="success"
-                            label="Create"
-                            @click="func.onCreate"
-                        />
+                    <div flex justify-end>
+                        <Button type="button" icon="i-carbon:add" severity="success" label="Create" @click="func.onCreate" />
                     </div>
                 </template>
 
@@ -82,25 +77,23 @@ defineExpose({
                 </template>
 
                 <!-- Edit, Delete -->
-                <Column id="action-col" header="Action" style="width: 100px" header-class="flex justify-center">
+                <Column id="action-col" header="Action" w-full flex justify-center>
                     <template #body="slotProps">
-                        <div class="align-items-center text-info flex gap-1">
-                            <Button
-                                text rounded
-                                type="button"
-                                severity="danger"
-                                icon="i-carbon:trash-can"
-                                @click="func.onDelete(slotProps.data as Product)"
-                            />
+                        <Button
+                            text rounded
+                            type="button"
+                            severity="danger"
+                            icon="i-carbon:trash-can"
+                            @click="func.onDelete(slotProps.data as Product)"
+                        />
 
-                            <Button
-                                text rounded
-                                type="button"
-                                severity="info"
-                                icon="i-carbon:edit"
-                                @click="func.onEdit(slotProps.data as Product)"
-                            />
-                        </div>
+                        <Button
+                            text rounded
+                            type="button"
+                            severity="info"
+                            icon="i-carbon:edit"
+                            @click="func.onEdit(slotProps.data as Product)"
+                        />
                     </template>
                 </Column>
             </DataTable>
