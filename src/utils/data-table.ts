@@ -49,7 +49,7 @@ declare global {
 
 }
 
-function useDataTable<TItems>(headers: Header[], sorting?: Sorting, onSubmit?: Function) {
+function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Function) {
     const table = reactive<DataTable<TItems>>({
         headers,
         props: {
@@ -87,21 +87,21 @@ function useDataTable<TItems>(headers: Header[], sorting?: Sorting, onSubmit?: F
         table.props.page = item.page
         table.props.pageCount = item.pageCount
 
-        onSubmit!(getStatePage())
+        onSubmit(getStatePage())
     }
 
     function onSortingChange(item: DataTableSortEvent) {
         table.props.sortField = item.sortField as string
         table.props.sortOrder = item?.sortOrder ?? -1
 
-        onSubmit!(getStatePage())
+        onSubmit(getStatePage())
     }
 
     function functionOnSubmit() {
         table.props.first = 0
         table.props.page = 0
 
-        onSubmit!(getStatePage())
+        onSubmit(getStatePage())
     }
 
     return {
