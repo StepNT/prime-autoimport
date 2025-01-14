@@ -1,6 +1,7 @@
+import type { DataTable, Header, Result, Sorting } from '@/types/common/data-table'
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
-function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSortBy, onSubmit: Function) {
+function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Function) {
     const table = reactive<DataTable<TItems>>({
         headers,
         props: {
@@ -21,7 +22,7 @@ function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSort
         result: {
             value: [],
             totalRecords: 0,
-        } as DataTableResult<TItems>,
+        } as Result<TItems>,
     })
 
     function getStatePage() {
