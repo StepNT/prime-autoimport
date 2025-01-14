@@ -88,7 +88,7 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
         onSubmit(getStatePage())
     }
 
-    function onSortByChange(item: DataTableSortEvent) {
+    function onSortingChange(item: DataTableSortEvent) {
         table.props.sortField = item.sortField as string
         table.props.sortOrder = item?.sortOrder ?? -1
 
@@ -106,7 +106,7 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
         table,
         onSubmit: functionOnSubmit,
         onPageChange,
-        onSortByChange,
+        onSortingChange,
     }
 }
 

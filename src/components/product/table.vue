@@ -8,7 +8,7 @@ const state = reactive({
     totalRecords: 0 as number,
 })
 
-const { table, onSubmit, onPageChange, onSortByChange } = useDataTable<Product>(
+const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>(
     [
         { header: 'ID', field: 'id', sortable: true },
         { header: 'Title', field: 'title' },
@@ -58,7 +58,7 @@ defineExpose({
                 v-bind="{ ...table.props, ...table.result }"
                 :loading="appStore.isLoading"
                 @page="onPageChange"
-                @sort="onSortByChange"
+                @sort="onSortingChange"
             >
                 <Column v-for="(col, index) of table.headers" :key="`${col.field}_${index}`" v-bind="col" />
 
