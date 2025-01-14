@@ -95,14 +95,6 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
         onSubmit(getStatePage())
     }
 
-    function onPageLengthChange(item: any) {
-        // debugger
-        // console.log('onPageLengthChange', item)
-        table.props.rows = item.rows
-
-        onSubmit(getStatePage())
-    }
-
     function functionOnSubmit() {
         table.props.first = 0
         table.props.page = 0
@@ -115,7 +107,6 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
         onSubmit: functionOnSubmit,
         onPageChange,
         onSortByChange,
-        onPageLengthChange,
     }
 }
 
