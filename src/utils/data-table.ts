@@ -1,4 +1,3 @@
-import type { DataTableHeader, DataTableResult, DataTableSortBy, DataTableStatePage, DataTableType } from '@/types/common/data-table'
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
 function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSortBy, onSubmit: Function) {

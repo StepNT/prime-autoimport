@@ -23,7 +23,7 @@ interface DataTableResult<TData> {
     totalRecords: number
 }
 
-export interface DataTableStatePage {
+interface DataTableStatePage {
     page: number
     sort: string
     order: 'asc' | 'desc'

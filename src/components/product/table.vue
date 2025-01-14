@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import type { DataTableStatePage } from '@/types/common/data-table'
-
 const appStore = useAppStore()
 
 const state = reactive({
