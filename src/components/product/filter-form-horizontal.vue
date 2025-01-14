@@ -15,17 +15,17 @@ const state = reactive({
 })
 
 const func = {
-    onClear: async () => {
+    onClear() {
         state.search = {} as Product
     },
-    onSearch: async () => {
-        await tableRef.value!.onSearch(state.search)
+    onSearch() {
+        tableRef.value!.onSearch(state.search)
     },
 }
 </script>
 
 <template>
-    <Card>
+    <Card @keydown.enter="func.onSearch">
         <template #title>
             <div class="text-xl font-semibold">
                 <Button icon="i-carbon:search" severity="info" variant="text" rounded label="Filter" />
