@@ -21,9 +21,9 @@ const { table, onSubmit, onPageChange, onSortByChange } = useDataTable<Product>(
         sortField: 'rating',
         sortOrder: 'asc',
     },
-    async ({ page, sort, order, itemPrePage }: DataTableState) => {
+    async ({ page, sort, order, pageSize }: DataTableState) => {
         const { products, total } = await api.Get<{ products: Product[], total: number }>
-        (`/products/search?q=${state.search.brand ?? ''}&limit=${itemPrePage}&skip=${itemPrePage * (page)}&sortBy=${sort}&order=${order}`)
+        (`/products/search?q=${state.search.brand ?? ''}&limit=${pageSize}&skip=${pageSize * (page)}&sortBy=${sort}&order=${order}`)
 
         table.result.value = products
         table.result.totalRecords = total

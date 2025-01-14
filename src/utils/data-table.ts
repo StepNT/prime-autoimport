@@ -1,5 +1,52 @@
-import type { DataTable, Header, Result, Sorting } from '@/types/common/data-table'
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
+
+export interface Prop {
+    rowsPerPageOptions: number[]
+    paginator: boolean
+    lazy: boolean
+    page: number
+    pageCount: number
+    originalEvent: Event
+    first: number
+    rows: number
+    sortField: string
+    sortOrder: -1 | 0 | 1
+}
+
+export interface Header {
+    header: string
+    field: string
+    align?: 'start' | 'center' | 'end'
+    sortable?: false | true
+}
+
+export interface DataTable<TData> {
+    headers: Header[]
+    props: Prop
+    result: Result<TData>
+}
+
+export interface Result<TData> {
+    value: TData[]
+    totalRecords: number
+}
+
+export interface Sorting {
+    sortField: string
+    sortOrder: 'asc' | 'desc'
+}
+
+export {}
+declare global {
+
+    interface DataTableState {
+        page: number
+        sort: string
+        order: 'asc' | 'desc'
+        pageSize: number
+    }
+
+}
 
 function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Function) {
     const table = reactive<DataTable<TItems>>({
@@ -30,7 +77,7 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
             page: table.props.page,
             sort: table.props.sortField,
             order: table.props.sortOrder === 1 ? 'asc' : 'desc',
-            itemPrePage: table.props.rows,
+            pageSize: table.props.rows,
         } as DataTableState
     }
 

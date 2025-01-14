@@ -57,3 +57,9 @@ declare global {
   const withDefaults: typeof import('vue')['withDefaults']
   const z: typeof import('zod')['z']
 }
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { Prop, Header, DataTable, Result, Sorting } from './utils/data-table'
+  import('./utils/data-table')
+}
