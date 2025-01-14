@@ -93,7 +93,7 @@ const func = {
             <div mr-2 flex justify-end gap-2>
                 <Button type="button" severity="warn" label="Reset" @click="func.onClear()">
                     <template #icon>
-                        <div i-carbon:renew animate-spin animate-duration-3s animate-count-infinite />
+                        <div i-carbon:renew animate-spin animate-duration-6s animate-count-infinite />
                     </template>
                 </Button>
                 <Button type="button" severity="info" label="Search" @click="func.onSearch()">
