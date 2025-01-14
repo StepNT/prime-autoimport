@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import { useLayout } from '@/stores/layout'
+const { onMenuToggle, layoutState } = useLayout()
 
-const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()
+const iconDrawer = computed(() => {
+    // return layoutState.staticMenuDesktopInactive ? 'i-ic:sharp-keyboard-double-arrow-right' : 'i-ic:sharp-keyboard-double-arrow-left'
+    return layoutState.staticMenuDesktopInactive ? 'i-ic:round-keyboard-double-arrow-right' : 'i-ic:round-keyboard-double-arrow-left'
+})
 </script>
 
 <template>
     <div class="layout-topbar">
         <div class="layout-topbar-logo-container">
             <Button
+
                 class="layout-menu-button layout-topbar-action"
-                icon="pi pi-bars"
-                text rounded
+                text animate-head-shake animate-duration-6s animate-count-infinite cursor-pointer rounded
                 severity="secondary"
                 @click="onMenuToggle"
-            />
+            >
+                <template #icon>
+                    <div :class="iconDrawer" />
+                </template>
+            </Button>
 
             <router-link to="/" class="layout-topbar-logo">
                 <svg viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +47,11 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout()
 
         <div class="layout-topbar-actions">
             <div class="layout-config-menu">
-                <Button type="button" :icon="isDarkTheme ? 'pi pi-moon' : 'pi pi-sun'" rounded @click="toggleDarkMode" />
+                <!-- <Button type="button" :icon="isDarkTheme ? 'pi pi-moon' : 'pi pi-sun'" rounded @click="toggleDarkMode" /> -->
+                <Button
+                    icon="i-carbon:logout" severity="danger" rounded variant="outlined"
+                    hover="animate-tada animate-count-infinite animate-duration-2s"
+                />
             </div>
         </div>
     </div>

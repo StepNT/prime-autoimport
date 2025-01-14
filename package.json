@@ -27,6 +27,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^3.14.0",
     "@iconify-json/carbon": "^1.2.5",
+    "@iconify-json/ic": "^1.2.2",
     "@primevue/auto-import-resolver": "^4.2.5",
     "@unocss/eslint-config": "^65.4.0",
     "@vitejs/plugin-vue": "^5.2.1",
