@@ -78,13 +78,13 @@ defineExpose({
 
                 <!-- Edit, Delete -->
                 <Column id="action-col" header="Action" w-full flex justify-center>
-                    <template #body="slotProps">
+                    <template #body="item">
                         <Button
                             text rounded
                             type="button"
                             severity="danger"
                             icon="i-carbon:trash-can"
-                            @click="func.onDelete(slotProps.data as Product)"
+                            @click="func.onDelete(item.data as Product)"
                         />
 
                         <Button
@@ -92,7 +92,7 @@ defineExpose({
                             type="button"
                             severity="info"
                             icon="i-carbon:edit"
-                            @click="func.onEdit(slotProps.data as Product)"
+                            @click="func.onEdit(item.data as Product)"
                         />
                     </template>
                 </Column>
