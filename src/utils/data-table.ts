@@ -1,7 +1,7 @@
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
 function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSortBy, onSubmit: Function) {
-    const table = reactive<DataTableType<TItems>>({
+    const table = reactive<DataTable<TItems>>({
         headers,
         props: {
             rowsPerPageOptions: [10, 20, 30, 40, 50],
@@ -30,7 +30,7 @@ function useDataTable<TItems>(headers: DataTableHeader[], sorting: DataTableSort
             sort: table.props.sortField,
             order: table.props.sortOrder === 1 ? 'asc' : 'desc',
             itemPrePage: table.props.rows,
-        } as DataTableStatePage
+        } as DataTableState
     }
 
     function onPageChange(item: DataTablePageEvent) {

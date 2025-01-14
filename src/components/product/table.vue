@@ -7,6 +7,7 @@ const state = reactive({
     page: 0,
     totalRecords: 0 as number,
 })
+
 const { table, onSubmit, onPageChange, onSortByChange } = useDataTable<Product>(
     [
         { header: 'ID', field: 'id', sortable: true },
@@ -20,7 +21,7 @@ const { table, onSubmit, onPageChange, onSortByChange } = useDataTable<Product>(
         sortField: 'rating',
         sortOrder: 'asc',
     },
-    async ({ page, sort, order, itemPrePage }: DataTableStatePage) => {
+    async ({ page, sort, order, itemPrePage }: DataTableState) => {
         const { products, total } = await api.Get<{ products: Product[], total: number }>
         (`/products/search?q=${state.search.brand ?? ''}&limit=${itemPrePage}&skip=${itemPrePage * (page)}&sortBy=${sort}&order=${order}`)
 

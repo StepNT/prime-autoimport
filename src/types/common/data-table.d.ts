@@ -1,5 +1,5 @@
 
-interface DataTableState  { 
+interface DataTableProp  { 
     rowsPerPageOptions: number[] 
     paginator: boolean
     lazy: boolean
@@ -12,9 +12,16 @@ interface DataTableState  {
     sortOrder: -1|0|1
 }
 
-interface DataTableType<TData> {
-    headers: ColumnProps[]
-    props: DataTableState
+interface DataTableHeader {
+    header: string
+    field: string
+    align?: 'start' | 'center' | 'end'
+    sortable?: false | true
+}
+
+interface DataTable<TData> {
+    headers: DataTableHeader[]
+    props: DataTableProp
     result: DataTableResult<TData>
 }
 
@@ -23,7 +30,7 @@ interface DataTableResult<TData> {
     totalRecords: number
 }
 
-interface DataTableStatePage {
+interface DataTableState {
     page: number
     sort: string
     order: 'asc' | 'desc'
@@ -32,12 +39,7 @@ interface DataTableStatePage {
 
 interface DataTableSortBy {
     sortField: string
-    sortOrder: 'asc' | 'desc'//-1|0|1
+    sortOrder: 'asc' | 'desc'
 }
 
-interface DataTableHeader {
-    header: string
-    field: string
-    align?: 'start' | 'center' | 'end'
-    sortable?: false | true
-}
+
