@@ -1,6 +1,7 @@
 import type { DataTablePageEvent, DataTableSortEvent } from 'primevue'
 
 export interface Prop {
+    stripedRows: boolean
     rowsPerPageOptions: number[]
     paginator: boolean
     lazy: boolean
@@ -52,6 +53,7 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
     const table = reactive<DataTable<TItems>>({
         headers,
         props: {
+            stripedRows: true,
             rowsPerPageOptions: [10, 20, 30, 40, 50],
             paginator: true,
             lazy: true,
