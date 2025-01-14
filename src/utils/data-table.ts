@@ -10,8 +10,8 @@ export interface Prop {
     originalEvent: Event
     first: number
     rows: number
-    sortField: string
-    sortOrder: -1 | 0 | 1
+    sortField?: string
+    sortOrder?: -1 | 0 | 1
 }
 
 export interface Header {
@@ -33,8 +33,8 @@ export interface Result<TData> {
 }
 
 export interface Sorting {
-    sortField: string
-    sortOrder: 'asc' | 'desc'
+    sortField?: string
+    sortOrder?: 'asc' | 'desc'
 }
 
 export {}
@@ -42,14 +42,14 @@ declare global {
 
     interface DataTableState {
         page: number
-        sort: string
-        order: 'asc' | 'desc'
+        sort?: string
+        order?: 'asc' | 'desc'
         pageSize: number
     }
 
 }
 
-function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Function) {
+function useDataTable<TItems>(headers: Header[], sorting?: Sorting, onSubmit?: Function) {
     const table = reactive<DataTable<TItems>>({
         headers,
         props: {
@@ -65,8 +65,8 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
             // itemsPerPage //
             rows: 10,
             // sorting //
-            sortField: sorting.sortField,
-            sortOrder: sorting.sortOrder === 'asc' ? 1 : -1,
+            sortField: sorting?.sortField,
+            sortOrder: sorting?.sortOrder === 'asc' ? 1 : -1,
         },
         result: {
             value: [],
@@ -77,8 +77,8 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
     function getStatePage() {
         return {
             page: table.props.page,
-            sort: table.props.sortField,
-            order: table.props.sortOrder === 1 ? 'asc' : 'desc',
+            sort: table.props?.sortField,
+            order: table.props?.sortOrder === 1 ? 'asc' : 'desc',
             pageSize: table.props.rows,
         } as DataTableState
     }
@@ -87,21 +87,21 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
         table.props.page = item.page
         table.props.pageCount = item.pageCount
 
-        onSubmit(getStatePage())
+        onSubmit!(getStatePage())
     }
 
     function onSortingChange(item: DataTableSortEvent) {
         table.props.sortField = item.sortField as string
         table.props.sortOrder = item?.sortOrder ?? -1
 
-        onSubmit(getStatePage())
+        onSubmit!(getStatePage())
     }
 
     function functionOnSubmit() {
         table.props.first = 0
         table.props.page = 0
 
-        onSubmit(getStatePage())
+        onSubmit!(getStatePage())
     }
 
     return {

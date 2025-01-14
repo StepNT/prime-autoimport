@@ -10,7 +10,7 @@ const state = reactive({
 
 const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>(
     [
-        { header: 'ID', field: 'id', sortable: true },
+        { header: 'ID', field: 'id' },
         { header: 'Title', field: 'title' },
         { header: 'PRICE', field: 'price', sortable: true },
         { header: 'RATING', field: 'rating', sortable: true },
@@ -18,7 +18,7 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
         { header: 'BRAND', field: 'brand' },
     ],
     {
-        sortField: 'rating',
+        sortField: 'price',
         sortOrder: 'asc',
     },
     async ({ page, sort, order, pageSize }: DataTableState) => {
@@ -60,6 +60,13 @@ defineExpose({
                 @page="onPageChange"
                 @sort="onSortingChange"
             >
+                <!-- <Column field="id" header="ID" />
+                <Column field="title" header="Title" />
+                <Column field="price" header="PRICE" />
+                <Column field="rating" header="RATING" />
+                <Column field="stock" header="STOCK" />
+                <Column field="brand" header="BRAND" /> -->
+
                 <Column v-for="(col, index) of table.headers" :key="`${col.field}_${index}`" v-bind="col" />
 
                 <template #header>
