@@ -1,6 +1,8 @@
 <template>
-    <router-view />
+    <VLoading />
+
     <Toast />
     <ConfirmPopup group="app-confirm" />
-    <VLoading />
+
+    <RouterView />
 </template>

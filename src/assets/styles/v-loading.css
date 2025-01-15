@@ -1,4 +1,4 @@
-.v-loading {
+/* .v-loading {
     max-height: 90%;
     transform: scale(1);
     border-radius: var(--p-dialog-border-radius);
@@ -6,4 +6,12 @@
     background: none !important;
     border: none !important;
     color: var(--p-dialog-color);
+} */
+
+.v-loading{
+    padding: 1.5rem;
+}
+
+.backdrop-blur-sm{
+    --un-backdrop-blur: blur(0.6px) !important;
 }
