@@ -1,6 +1,7 @@
 import type { PrimeVueConfiguration } from 'primevue'
 import Aura from '@primevue/themes/aura'
 import PrimeVue from 'primevue/config'
+import locale from './locale-th'
 
 const themeConfig = {
 
@@ -15,6 +16,7 @@ const themeConfig = {
             },
         },
     },
+    locale,
 
 } as PrimeVueConfiguration
 

@@ -44,13 +44,11 @@ function onDelete(event: Event, product: Product) {
         message: `Do you want to delete brand ${product.brand}?`,
         icon: 'pi pi-exclamation-triangle',
         rejectProps: {
-            label: 'ยกเลิก',
             severity: 'secondary',
             outlined: true,
         },
         acceptIcon: 'pi pi-trash',
         acceptProps: {
-            label: 'ลบ',
             severity: 'warn',
         },
         accept: () => {
@@ -99,11 +97,9 @@ defineExpose({
                     </template>
 
                     <template #empty>
-                        Data Not Found
-                    </template>
-
-                    <template #loading>
-                        Loading...
+                        <div flex animate-head-shake animate-duration-2s animate-count-infinite justify-center>
+                            ไม่พบข้อมูล
+                        </div>
                     </template>
 
                     <!-- Edit, Delete -->
