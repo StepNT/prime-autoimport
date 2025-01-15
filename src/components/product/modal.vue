@@ -96,20 +96,20 @@ defineExpose({
                     </div>
                     <div input-col>
                         <label>Stock</label>
-                        <InputNumber v-model="state.product.stock" />
+                        <InputNumber v-model="state.product.stock" :min-fraction-digits="2" />
                     </div>
 
                     <div input-col>
                         <label>Rating</label>
-                        <InputNumber v-model="state.product.rating" />
+                        <InputNumber v-model="state.product.rating" :min-fraction-digits="2" />
                     </div>
                     <div input-col>
                         <label>Price</label>
-                        <InputNumber v-model="state.product.price" />
+                        <InputNumber v-model="state.product.price" :min-fraction-digits="2" />
                     </div>
                     <div input-col>
                         <label>Discount</label>
-                        <InputNumber v-model="state.product.discountPercentage" />
+                        <InputNumber v-model="state.product.discountPercentage" :min-fraction-digits="2" />
                     </div>
                 </div>
             </template>

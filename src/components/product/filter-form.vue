@@ -60,7 +60,7 @@ const func = {
 
                 <div input-row>
                     <label col-3>Discount</label>
-                    <InputNumber v-model="state.search.discountPercentage" col-9 />
+                    <InputNumber v-model="state.search.discountPercentage" :min-fraction-digits="2" col-9 />
                 </div>
                 <div input-row>
                     <label col-3>Start Date</label>
