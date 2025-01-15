@@ -27,13 +27,11 @@ const func = {
 <template>
     <Card @keydown.enter="func.onSearch">
         <template #title>
-            <div text-xl font-semibold>
-                <Button severity="info" variant="text" rounded label="Filter">
-                    <template #icon>
-                        <div i-carbon:filter animate-loop animate-header />
-                    </template>
-                </Button>
-            </div>
+            <Button severity="info" variant="text" label="Filter">
+                <template #icon>
+                    <div i-carbon:filter animate-loop animate-header />
+                </template>
+            </Button>
         </template>
 
         <template #content>

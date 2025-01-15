@@ -1,3 +1,12 @@
+.p-dialog-header{
+    padding-bottom: 0.5rem;
+}
+
+.p-dialog-header .p-button-label{
+    font-weight: 600;
+}
+
 .p-dialog-footer{
     margin-right: 0.5rem;
 }
+

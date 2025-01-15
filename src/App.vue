@@ -3,7 +3,7 @@
 <template>
     <router-view />
     <Toast />
-    <!-- <ConfirmPopup /> -->
+    <ConfirmPopup group="app-confirm" />
 </template>
 
 <style scoped></style>

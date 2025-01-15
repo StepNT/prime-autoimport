@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-const appStore = useAppStore()
 const toast = useToast()
 const confirm = useConfirm()
 
@@ -38,6 +37,7 @@ function onCreate() {
 function onDelete(event: MouseEvent, product: Product) {
     confirm.require({
         target: event.target as HTMLElement,
+        group: 'app-confirm',
         message: `Do you want to delete brand ${product.brand}?`,
         icon: 'pi pi-exclamation-triangle',
         rejectProps: {
@@ -70,7 +70,6 @@ defineExpose({
             <template #content>
                 <DataTable
                     v-bind="{ ...table.props, ...table.result }"
-                    :loading="appStore.isLoading"
                     @page="onPageChange"
                     @sort="onSortingChange"
                 >

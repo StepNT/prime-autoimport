@@ -12,9 +12,8 @@ export default defineConfig({
             'input-col': 'grid p-2 gap-1 items-baseline [&_label]:md:mr-2 [&_label]:font-semibold',
 
             // icon
-            // 'animate-icon': 'animate-duration-3s animate-count-infinite',
-            'animate-header': 'animate-bounce animate-duration-3s animate-count-infinite',
-            'animate-btn-action': 'animate-tada animate-duration-4s animate-count-infinite',
+            'animate-header': 'animate-tada animate-duration-4s animate-count-infinite',
+            'animate-btn-action': 'animate-tada animate-duration-2s animate-count-infinite',
             'animate-btn': 'animate-tada animate-duration-4s animate-count-infinite',
         },
         [/^row-col-(\d+)$/, ([, c]) => `grid flex-row md:grid-cols-${c}`],
