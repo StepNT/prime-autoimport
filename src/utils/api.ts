@@ -1,7 +1,6 @@
 import type { AxiosRequestConfig, AxiosRequestTransformer, AxiosResponse } from 'axios'
 import axios from 'axios'
 import { buildWebStorage, setupCache } from 'axios-cache-interceptor'
-import { ToastEventBus } from 'primevue'
 
 function dateTransformer(data: any): any {
     if (data instanceof Date) {
@@ -93,14 +92,16 @@ function handleError(err: any) {
         message = httpMessage[code] || 'เกิดข้อผิดพลาด'
     }
 
-    ToastEventBus.emit('add', {
+    resetLoading()
+
+    const toast = useToastService()
+
+    toast({
         severity: 'error',
         summary: 'Error',
         detail: `${message}`,
         life: 6000,
     })
-
-    resetLoading()
 
     if (code === 401) {
         const router = useRouter()
