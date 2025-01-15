@@ -34,7 +34,7 @@ export default defineConfig({
                         'useTemplateRef',
                     ],
                     'vue-router': ['useRouter', 'useRoute'],
-                    'pinia': ['defineStore', 'acceptHMRUpdate'],
+                    'pinia': ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],
                     'zod': ['z'],
                     '@vueuse/core': ['watchDebounced'],
                     'primevue': ['useConfirm', 'useToast'],

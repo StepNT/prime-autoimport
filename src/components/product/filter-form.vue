@@ -30,7 +30,7 @@ const func = {
             <div text-xl font-semibold>
                 <Button severity="info" variant="text" rounded label="Filter">
                     <template #icon>
-                        <div i-carbon:filter animate-bounce animate-duration-3s animate-count-infinite />
+                        <div i-carbon:filter animate-loop animate-header />
                     </template>
                 </Button>
             </div>
@@ -91,12 +91,12 @@ const func = {
             <div flex justify-end gap-2>
                 <Button type="button" severity="warn" label="Reset" @click="func.onClear()">
                     <template #icon>
-                        <div i-carbon:renew animate-spin animate-duration-6s animate-count-infinite />
+                        <div i-carbon:renew animate-spin animate-duration-4s animate-count-infinite />
                     </template>
                 </Button>
                 <Button type="button" severity="info" label="Search" @click="func.onSearch()">
                     <template #icon>
-                        <div i-carbon:search animate-tada animate-duration-3s animate-count-infinite />
+                        <div i-carbon:search animate-btn />
                     </template>
                 </Button>
             </div>

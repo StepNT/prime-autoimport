@@ -2,27 +2,10 @@
 const appStore = useAppStore()
 const toast = useToast()
 const confirm = useConfirm()
-const visible = ref(false)
 
-const state = reactive({
-    search: {} as Product,
-    products: [] as Product[],
-    page: 0,
-    totalRecords: 0 as number,
-})
+const modalRef = useTemplateRef('modalEl')
 
-const state2 = reactive({
-    master: {
-        status: [
-            { id: true, text: 'Active' },
-            { id: false, text: 'InActive' },
-        ],
-    },
-    search: {
-        // autoCompleteServer: '0d464588-56a6-4831-b085-f26cb65ee7fd',
-        // autoCompleteMultipleServer: ['0d464588-56a6-4831-b085-f26cb65ee7fd', 'd85f5eb3-4b9c-4483-9b77-29010b0a93a3', 'dc79347f-90b2-4ffb-9140-69e54648e180'],
-    } as Product,
-})
+const state = reactive({ search: {} as Product })
 
 const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>(
     [
@@ -46,12 +29,11 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
     },
 )
 
-function onEdit(_val: Product) {
-    // modalRef.value!.open(val)
+function onEdit(product: Product) {
+    modalRef.value!.onOpen(product)
 }
 function onCreate() {
-    visible.value = true
-    // modalRef.value!.open({} as Product)
+    modalRef.value!.onOpen({} as Product)
 }
 function onDelete(event: MouseEvent, product: Product) {
     confirm.require({
@@ -75,8 +57,8 @@ function onDelete(event: MouseEvent, product: Product) {
 onMounted(() => onSubmit())
 
 defineExpose({
-    onSearch(productSearch: Product) {
-        state.search = { ...productSearch }
+    onSearch(search: Product) {
+        state.search = { ...search }
         onSubmit()
     },
 })
@@ -105,7 +87,7 @@ defineExpose({
                         <div flex justify-end>
                             <Button type="button" severity="success" label="Create" @click="onCreate">
                                 <template #icon>
-                                    <div i-carbon:add animate-tada animate-duration-2s animate-count-infinite />
+                                    <div i-carbon:add animate-btn />
                                 </template>
                             </Button>
                         </div>
@@ -121,7 +103,7 @@ defineExpose({
                     <Column id="action-col" header="Action" w-full flex justify-center>
                         <template #body="item">
                             <Button
-                                hover="animate-tada animate-count-infinite"
+                                hover="animate-btn-action"
                                 text rounded
                                 type="button"
                                 severity="danger"
@@ -130,7 +112,7 @@ defineExpose({
                             />
 
                             <Button
-                                hover="animate-tada animate-count-infinite"
+                                hover="animate-btn-action"
                                 text rounded
                                 icon="i-carbon:edit"
                                 type="button"
@@ -143,61 +125,6 @@ defineExpose({
             </template>
         </Card>
 
-        <Dialog v-model:visible="visible" modal header="Edit Profile" w-screen-lg>
-            <template #default>
-                <div row-col-3>
-                    <div input-col>
-                        <label>Brand</label>
-                        <InputText v-model="state.search.brand" type="text" />
-                    </div>
-                    <div input-col>
-                        <label>Title</label>
-                        <InputText v-model="state.search.title" type="text" />
-                    </div>
-                    <div input-col>
-                        <label>Status</label>
-                        <Select
-                            v-model="state2.search.status"
-                            :options="state2.master.status"
-                            option-value="id"
-                            option-label="text"
-                            placeholder="Select a Status"
-                            :show-clear="true"
-                            filter
-                        />
-                    </div>
-
-                    <div input-col>
-                        <label>Discount</label>
-                        <InputNumber v-model="state2.search.discountPercentage" />
-                    </div>
-                    <div input-col>
-                        <label>Start Date</label>
-                        <DatePicker
-                            v-model="state2.search.start"
-                            :select-other-months="true"
-                            show-icon icon-display="input"
-                            :max-date="state2.search.end"
-                        />
-                    </div>
-                    <div input-col>
-                        <label>End Date</label>
-                        <DatePicker
-                            v-model="state2.search.end"
-                            show-icon icon-display="input"
-                            :select-other-months="true"
-                            :min-date="state2.search.start"
-                        />
-                    </div>
-                </div>
-            </template>
-
-            <template #footer>
-                <div class="flex justify-end gap-2">
-                    <Button type="button" label="Cancel" severity="secondary" @click="visible = false" />
-                    <Button type="button" label="Save" @click="visible = false" />
-                </div>
-            </template>
-        </Dialog>
+        <ProductModal ref="modalEl" />
     </div>
 </template>
