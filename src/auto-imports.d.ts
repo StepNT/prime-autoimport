@@ -53,6 +53,7 @@ declare global {
   const useRouter: typeof import('vue-router')['useRouter']
   const useTemplateRef: typeof import('vue')['useTemplateRef']
   const useToast: typeof import('primevue')['useToast']
+  const useToastService: typeof import('./utils/toast-service')['useToastService']
   const useZodValidate: typeof import('./utils/zod-validate')['useZodValidate']
   const watch: typeof import('vue')['watch']
   const watchDebounced: typeof import('@vueuse/core')['watchDebounced']

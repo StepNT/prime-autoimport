@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig, AxiosRequestTransformer, AxiosResponse } from 'axios'
 import axios from 'axios'
-
 import { buildWebStorage, setupCache } from 'axios-cache-interceptor'
+import { ToastEventBus } from 'primevue'
 
 function dateTransformer(data: any): any {
     if (data instanceof Date) {
@@ -92,11 +92,13 @@ function handleError(err: any) {
         code = res?.status ?? 500
         message = httpMessage[code] || 'เกิดข้อผิดพลาด'
     }
-    // eslint-disable-next-line no-console
-    console.log('err', err)
-    // eslint-disable-next-line no-console
-    console.log('message', message)
-    // _alert.Err(`status code: ${code}`, message)
+
+    ToastEventBus.emit('add', {
+        severity: 'error',
+        summary: 'Error',
+        detail: `${message}`,
+        life: 6000,
+    })
 
     resetLoading()
 
