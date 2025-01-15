@@ -146,15 +146,15 @@ defineExpose({
         <Dialog v-model:visible="visible" modal header="Edit Profile" w-screen-lg>
             <template #default>
                 <div row-col-3>
-                    <div input-group-full>
+                    <div input-col>
                         <label>Brand</label>
                         <InputText v-model="state.search.brand" type="text" />
                     </div>
-                    <div input-group-full>
+                    <div input-col>
                         <label>Title</label>
                         <InputText v-model="state.search.title" type="text" />
                     </div>
-                    <div input-group-full>
+                    <div input-col>
                         <label>Status</label>
                         <Select
                             v-model="state2.search.status"
@@ -167,11 +167,11 @@ defineExpose({
                         />
                     </div>
 
-                    <div input-group-full>
+                    <div input-col>
                         <label>Discount</label>
                         <InputNumber v-model="state2.search.discountPercentage" />
                     </div>
-                    <div input-group-full>
+                    <div input-col>
                         <label>Start Date</label>
                         <DatePicker
                             v-model="state2.search.start"
@@ -180,7 +180,7 @@ defineExpose({
                             :max-date="state2.search.end"
                         />
                     </div>
-                    <div input-group-full>
+                    <div input-col>
                         <label>End Date</label>
                         <DatePicker
                             v-model="state2.search.end"
@@ -193,7 +193,7 @@ defineExpose({
             </template>
 
             <template #footer>
-                <div class="mr-2 flex justify-end gap-2">
+                <div class="flex justify-end gap-2">
                     <Button type="button" label="Cancel" severity="secondary" @click="visible = false" />
                     <Button type="button" label="Save" @click="visible = false" />
                 </div>

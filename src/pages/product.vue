@@ -3,5 +3,5 @@
 </script>
 
 <template>
-    <ProductFilterFormHorizontal />
+    <ProductFilterForm />
 </template>

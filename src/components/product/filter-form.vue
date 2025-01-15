@@ -38,15 +38,15 @@ const func = {
 
         <template #content>
             <div row-col-3>
-                <div input-group>
+                <div input-row>
                     <label col-3>Brand</label>
                     <InputText v-model="state.search.brand" col-9 type="text" />
                 </div>
-                <div input-group>
+                <div input-row>
                     <label col-3>Title</label>
                     <InputText v-model="state.search.title" col-9 type="text" />
                 </div>
-                <div input-group>
+                <div input-row>
                     <label col-3>Status</label>
                     <Select
                         v-model="state.search.status"
@@ -60,11 +60,11 @@ const func = {
                     />
                 </div>
 
-                <div input-group>
+                <div input-row>
                     <label col-3>Discount</label>
                     <InputNumber v-model="state.search.discountPercentage" col-9 />
                 </div>
-                <div input-group>
+                <div input-row>
                     <label col-3>Start Date</label>
                     <DatePicker
                         v-model="state.search.start"
@@ -74,7 +74,7 @@ const func = {
                         col-9
                     />
                 </div>
-                <div input-group>
+                <div input-row>
                     <label col-3>End Date</label>
                     <DatePicker
                         v-model="state.search.end"
@@ -88,7 +88,7 @@ const func = {
         </template>
 
         <template #footer>
-            <div mr-2 flex justify-end gap-2>
+            <div flex justify-end gap-2>
                 <Button type="button" severity="warn" label="Reset" @click="func.onClear()">
                     <template #icon>
                         <div i-carbon:renew animate-spin animate-duration-6s animate-count-infinite />
