@@ -93,9 +93,7 @@ defineExpose({
                     </template>
 
                     <template #empty>
-                        <div flex animate-head-shake animate-duration-2s animate-count-infinite justify-center>
-                            ไม่พบข้อมูล
-                        </div>
+                        ไม่พบข้อมูล
                     </template>
 
                     <!-- Edit, Delete -->
