@@ -38,9 +38,9 @@ function onEdit(_val: Product) {
 function onCreate() {
     // modalRef.value!.open({} as Product)
 }
-function onDelete(event: Event, product: Product) {
+function onDelete(event: MouseEvent, product: Product) {
     confirm.require({
-        target: event.currentTarget as HTMLElement,
+        target: event.target as HTMLElement,
         message: `Do you want to delete brand ${product.brand}?`,
         icon: 'pi pi-exclamation-triangle',
         rejectProps: {
