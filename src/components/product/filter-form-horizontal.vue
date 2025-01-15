@@ -37,7 +37,7 @@ const func = {
         </template>
 
         <template #content>
-            <div row-3>
+            <div row-col-3>
                 <div input-group>
                     <label col-3>Brand</label>
                     <InputText v-model="state.search.brand" col-9 type="text" />
@@ -59,9 +59,7 @@ const func = {
                         col-9
                     />
                 </div>
-            </div>
 
-            <div row-3>
                 <div input-group>
                     <label col-3>Discount</label>
                     <InputNumber v-model="state.search.discountPercentage" col-9 />
