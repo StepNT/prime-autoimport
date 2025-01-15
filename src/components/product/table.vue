@@ -2,6 +2,7 @@
 const appStore = useAppStore()
 const toast = useToast()
 const confirm = useConfirm()
+const visible = ref(false)
 
 const state = reactive({
     search: {} as Product,
@@ -36,6 +37,7 @@ function onEdit(_val: Product) {
     // modalRef.value!.open(val)
 }
 function onCreate() {
+    visible.value = true
     // modalRef.value!.open({} as Product)
 }
 function onDelete(event: MouseEvent, product: Product) {
@@ -127,5 +129,33 @@ defineExpose({
                 </DataTable>
             </template>
         </Card>
+
+        <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
+            <span class="text-surface-500 dark:text-surface-400 mb-8 block">Update your information.</span>
+            <div class="mb-4 flex items-center gap-4">
+                <label for="username" class="w-24 font-semibold">Username</label>
+                <InputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="mb-8 flex items-center gap-4">
+                <label for="email" class="w-24 font-semibold">Email</label>
+                <InputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+
+            <div row-1>
+                <div input-group-left>
+                    <label for="username" col-4>Username</label>
+                    <InputText id="username" col-8 autocomplete="off" />
+                </div>
+                <div input-group-left>
+                    <label for="username" col-4>Email</label>
+                    <InputText id="username" col-8 autocomplete="off" />
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2">
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false" />
+                <Button type="button" label="Save" @click="visible = false" />
+            </div>
+        </Dialog>
     </div>
 </template>

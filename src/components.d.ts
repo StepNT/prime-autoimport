@@ -13,6 +13,7 @@ declare module 'vue' {
     ConfirmPopup: typeof import('primevue/confirmpopup')['default']
     DataTable: typeof import('primevue/datatable')['default']
     DatePicker: typeof import('primevue/datepicker')['default']
+    Dialog: typeof import('primevue/dialog')['default']
     InputNumber: typeof import('primevue/inputnumber')['default']
     InputText: typeof import('primevue/inputtext')['default']
     ProductFilterFormHorizontal: typeof import('./components/product/filter-form-horizontal.vue')['default']
