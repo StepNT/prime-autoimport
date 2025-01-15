@@ -11,6 +11,19 @@ const state = reactive({
     totalRecords: 0 as number,
 })
 
+const state2 = reactive({
+    master: {
+        status: [
+            { id: true, text: 'Active' },
+            { id: false, text: 'InActive' },
+        ],
+    },
+    search: {
+        // autoCompleteServer: '0d464588-56a6-4831-b085-f26cb65ee7fd',
+        // autoCompleteMultipleServer: ['0d464588-56a6-4831-b085-f26cb65ee7fd', 'd85f5eb3-4b9c-4483-9b77-29010b0a93a3', 'dc79347f-90b2-4ffb-9140-69e54648e180'],
+    } as Product,
+})
+
 const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>(
     [
         { header: 'ID', field: 'id' },
@@ -130,22 +143,61 @@ defineExpose({
             </template>
         </Card>
 
-        <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
-            <div row-col-1>
-                <div input-group-left>
-                    <label for="username" col-4>Username</label>
-                    <InputText id="username" col-8 autocomplete="off" />
-                </div>
-                <div input-group-left>
-                    <label for="username" col-4>Email</label>
-                    <InputText id="username" col-8 autocomplete="off" />
-                </div>
-            </div>
+        <Dialog v-model:visible="visible" modal header="Edit Profile" w-screen-lg>
+            <template #default>
+                <div row-col-3>
+                    <div input-group-full>
+                        <label>Brand</label>
+                        <InputText v-model="state.search.brand" type="text" />
+                    </div>
+                    <div input-group-full>
+                        <label>Title</label>
+                        <InputText v-model="state.search.title" type="text" />
+                    </div>
+                    <div input-group-full>
+                        <label>Status</label>
+                        <Select
+                            v-model="state2.search.status"
+                            :options="state2.master.status"
+                            option-value="id"
+                            option-label="text"
+                            placeholder="Select a Status"
+                            :show-clear="true"
+                            filter
+                        />
+                    </div>
 
-            <div class="flex justify-end gap-2">
-                <Button type="button" label="Cancel" severity="secondary" @click="visible = false" />
-                <Button type="button" label="Save" @click="visible = false" />
-            </div>
+                    <div input-group-full>
+                        <label>Discount</label>
+                        <InputNumber v-model="state2.search.discountPercentage" />
+                    </div>
+                    <div input-group-full>
+                        <label>Start Date</label>
+                        <DatePicker
+                            v-model="state2.search.start"
+                            :select-other-months="true"
+                            show-icon icon-display="input"
+                            :max-date="state2.search.end"
+                        />
+                    </div>
+                    <div input-group-full>
+                        <label>End Date</label>
+                        <DatePicker
+                            v-model="state2.search.end"
+                            show-icon icon-display="input"
+                            :select-other-months="true"
+                            :min-date="state2.search.start"
+                        />
+                    </div>
+                </div>
+            </template>
+
+            <template #footer>
+                <div class="mr-2 flex justify-end gap-2">
+                    <Button type="button" label="Cancel" severity="secondary" @click="visible = false" />
+                    <Button type="button" label="Save" @click="visible = false" />
+                </div>
+            </template>
         </Dialog>
     </div>
 </template>
