@@ -10,6 +10,8 @@
 
 .v-loading{
     padding: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .backdrop-blur-sm{
