@@ -1,0 +1,9 @@
+.v-loading {
+    max-height: 90%;
+    transform: scale(1);
+    border-radius: var(--p-dialog-border-radius);
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important;
+    color: var(--p-dialog-color);
+}

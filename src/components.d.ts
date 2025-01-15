@@ -20,9 +20,11 @@ declare module 'vue' {
     ProductFilterForm: typeof import('./components/product/filter-form.vue')['default']
     ProductModal: typeof import('./components/product/modal.vue')['default']
     ProductTable: typeof import('./components/product/table.vue')['default']
+    ProgressSpinner: typeof import('primevue/progressspinner')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Select: typeof import('primevue/select')['default']
     Toast: typeof import('primevue/toast')['default']
+    VLoading: typeof import('./components/@v/loading.vue')['default']
   }
 }

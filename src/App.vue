@@ -1,9 +1,6 @@
-<script setup></script>
-
 <template>
     <router-view />
     <Toast />
     <ConfirmPopup group="app-confirm" />
+    <VLoading />
 </template>
-
-<style scoped></style>
