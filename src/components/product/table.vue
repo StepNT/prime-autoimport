@@ -20,7 +20,6 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
         sortOrder: 'desc',
     },
     async ({ page, sort, order, pageSize }: DataTableState) => {
-        debugger
         const { products, total } = await api.Get<{ products: Product[], total: number }>
         (`/products/search?q=${state.search.brand ?? ''}&limit=${pageSize}&skip=${pageSize * (page)}&sortBy=${sort}&order=${order}`)
 
@@ -38,7 +37,8 @@ function onCreate() {
 function onDelete(event: MouseEvent, product: Product) {
     confirm.require({
         target: event.target as HTMLElement,
-        group: 'app-confirm',
+        group: 'popup-el',
+        header: 'Confirmation',
         message: `Do you want to delete brand ${product.brand}?`,
         icon: 'pi pi-exclamation-triangle',
         rejectProps: {
@@ -50,7 +50,12 @@ function onDelete(event: MouseEvent, product: Product) {
             severity: 'warn',
         },
         accept: () => {
-            toast.add({ severity: 'success', summary: 'Confirmed', detail: 'You have accepted', life: 9000 })
+            toast.add({
+                severity: 'success',
+                summary: 'Confirmed',
+                detail: 'You have accepted',
+                life: 9000,
+            })
         },
     })
 }

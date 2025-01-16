@@ -2,7 +2,8 @@
     <VLoading />
 
     <Toast />
-    <ConfirmPopup group="app-confirm" />
+    <ConfirmPopup group="popup-el" />
+    <ConfirmDialog />
 
     <RouterView />
 </template>
