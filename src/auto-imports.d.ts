@@ -39,6 +39,7 @@ declare global {
   const requiredNumber: typeof import('./utils/zod-validate')['requiredNumber']
   const requiredString: typeof import('./utils/zod-validate')['requiredString']
   const shallowRef: typeof import('vue')['shallowRef']
+  const showError: typeof import('./utils/confirm-service')['showError']
   const storeToRefs: typeof import('pinia')['storeToRefs']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']

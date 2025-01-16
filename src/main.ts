@@ -11,9 +11,11 @@ import './assets/styles/index.scss'
 import 'virtual:uno.css'
 
 const app = createApp(App)
-app.use(piniaConfig)
 app.use(PrimeVue, themeConfig)
+
+app.use(piniaConfig)
 app.use(routerConfig)
+
 app.use(ToastService)
 app.use(ConfirmationService)
 

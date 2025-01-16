@@ -20,6 +20,7 @@ const { table, onSubmit, onPageChange, onSortingChange } = useDataTable<Product>
         sortOrder: 'desc',
     },
     async ({ page, sort, order, pageSize }: DataTableState) => {
+        debugger
         const { products, total } = await api.Get<{ products: Product[], total: number }>
         (`/products/search?q=${state.search.brand ?? ''}&limit=${pageSize}&skip=${pageSize * (page)}&sortBy=${sort}&order=${order}`)
 

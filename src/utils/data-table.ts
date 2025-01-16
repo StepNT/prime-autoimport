@@ -86,6 +86,7 @@ function useDataTable<TItems>(headers: Header[], sorting: Sorting, onSubmit: Fun
     function onPageChange(item: DataTablePageEvent) {
         table.props.page = item.page
         table.props.pageCount = item.pageCount
+        table.props.rows = item.rows
 
         onSubmit(getStatePage())
     }
