@@ -8,6 +8,7 @@ export {}
 declare global {
   const _dateTime: typeof import('./utils/date-time')['_dateTime']
   const _debounce: typeof import('./utils/_/debounce')['_debounce']
+  const _file: typeof import('./utils/file')['_file']
   const _groupBy: typeof import('./utils/_/group-by')['_groupBy']
   const _isArray: typeof import('./utils/_/is-array')['_isArray']
   const _isDate: typeof import('./utils/_/is-date')['_isDate']
