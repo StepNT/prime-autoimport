@@ -27,12 +27,13 @@ const func = {
                     :cancel-button-props="{ severity: 'secondary', label: 'Cancel' }"
                     :upload-button-props="{ severity: 'success', label: 'Upload' }"
                     :choose-button-props="{ severity: 'primary', label: 'Choose' }"
+                    variant="simple"
                     @select="func.onHandleFile"
                 >
                     <template #content="{ files, uploadedFiles }">
                         <div v-if="files.length > 0">
                             <h5>Pending</h5>
-                            <Message v-for="file in files" :key="file.name">
+                            <Message v-for="file in files" :key="file.name" closable>
                                 {{ file.name }} - {{ (file.size / 1024).toFixed(2) }} KB
                                 <template #icon>
                                     <i class="pi pi-file" />
@@ -41,7 +42,7 @@ const func = {
                         </div>
                         <div v-if="uploadedFiles.length > 0">
                             <h5>Completed</h5>
-                            <Message v-for="file in uploadedFiles" :key="file.name" severity="success">
+                            <Message v-for="file in uploadedFiles" :key="file.name" closable severity="success">
                                 {{ file.name }} - {{ (file.size / 1024).toFixed(2) }} KB
                                 <template #icon>
                                     <i class="pi pi-file" />
