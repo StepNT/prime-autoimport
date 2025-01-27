@@ -15,8 +15,10 @@ declare module 'vue' {
     DataTable: typeof import('primevue/datatable')['default']
     DatePicker: typeof import('primevue/datepicker')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    FileUpload: typeof import('primevue/fileupload')['default']
     InputNumber: typeof import('primevue/inputnumber')['default']
     InputText: typeof import('primevue/inputtext')['default']
+    Message: typeof import('primevue/message')['default']
     ProductFilterForm: typeof import('./components/product/filter-form.vue')['default']
     ProductModal: typeof import('./components/product/modal.vue')['default']
     ProductTable: typeof import('./components/product/table.vue')['default']
@@ -25,6 +27,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Select: typeof import('primevue/select')['default']
     Toast: typeof import('primevue/toast')['default']
+    UploadMain: typeof import('./components/upload/main.vue')['default']
     VLoading: typeof import('./components/@v/loading.vue')['default']
   }
 }
