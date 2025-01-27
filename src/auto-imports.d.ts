@@ -6,6 +6,7 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const _alert: typeof import('./utils/alert')['_alert']
   const _dateTime: typeof import('./utils/date-time')['_dateTime']
   const _debounce: typeof import('./utils/_/debounce')['_debounce']
   const _file: typeof import('./utils/file')['_file']
@@ -26,6 +27,7 @@ declare global {
   const _sumBy: typeof import('./utils/_/sum-by')['_sumBy']
   const _uniqBy: typeof import('./utils/_/uniq-by')['_uniqBy']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
+  const alert: typeof import('./utils/alert')['default']
   const api: typeof import('./utils/api')['default']
   const computed: typeof import('vue')['computed']
   const defineEmits: typeof import('vue')['defineEmits']

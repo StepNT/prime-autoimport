@@ -4,8 +4,16 @@ import MenuComponent from '@components/layout/components/menu.vue'
 
 <template>
     <div class="layout-sidebar">
-        <MenuComponent />
+        <PerfectScrollbar class="drawer-content">
+            <MenuComponent />
+        </PerfectScrollbar>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.drawer-content {
+    height: 100%;
+    max-height: calc(100vh);
+    overflow-y: auto;
+}
+</style>

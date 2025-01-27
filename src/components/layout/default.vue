@@ -1,6 +1,6 @@
 <script setup>
 import { useLayout } from '@/stores/layout'
-import FooterComponent from '../layout/components/footer.vue'
+// import FooterComponent from '../layout/components/footer.vue'
 import SidebarComponent from '../layout/components/sidebar.vue'
 import TopBarComponent from '../layout/components/topbar.vue'
 
@@ -9,12 +9,9 @@ const { layoutConfig, layoutState, isSidebarActive, resetMenu } = useLayout()
 const outsideClickListener = ref(null)
 
 watch(isSidebarActive, (newVal) => {
-    if (newVal) {
-        bindOutsideClickListener()
-    }
-    else {
-        unbindOutsideClickListener()
-    }
+    newVal
+        ? bindOutsideClickListener()
+        : unbindOutsideClickListener()
 })
 
 const containerClass = computed(() => {
@@ -49,7 +46,10 @@ function isOutsideClicked(event) {
     const sidebarEl = document.querySelector('.layout-sidebar')
     const topbarEl = document.querySelector('.layout-menu-button')
 
-    return !(sidebarEl.isSameNode(event.target) || sidebarEl.contains(event.target) || topbarEl.isSameNode(event.target) || topbarEl.contains(event.target))
+    return !(sidebarEl.isSameNode(event.target)
+        || sidebarEl.contains(event.target)
+        || topbarEl.isSameNode(event.target)
+        || topbarEl.contains(event.target))
 }
 </script>
 
@@ -57,13 +57,13 @@ function isOutsideClicked(event) {
     <div class="layout-wrapper" :class="containerClass">
         <TopBarComponent />
         <SidebarComponent />
-        <div class="layout-main-container">
+        <PerfectScrollbar class="layout-main-container">
             <div class="layout-main">
                 <router-view />
             </div>
-            <FooterComponent />
-        </div>
-        <div class="layout-mask animate-fadein" />
+        </PerfectScrollbar>
+        <!-- <FooterComponent /> -->
+        <!-- <div class="layout-mask animate-fadein" /> -->
     </div>
     <Toast />
 </template>
